@@ -1,0 +1,40 @@
+.container {
+  padding: 3px 0 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.container:hover {
+  padding: 0 0 3px;
+}
+.btn_outlined {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  padding: 5px 8px;
+  border-radius: 8px;
+  gap: 5px;
+  width: fit-content;
+}
+.btn_solid {
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  background-color: var(--bg-2);
+  box-shadow: var(--shadow-main);
+  padding: 5px 8px;
+  border-radius: 8px;
+  gap: 5px;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+.container:hover .btn_solid {
+  box-shadow: var(--shadow-tall);
+}
+.btn_solid * {
+  color: var(--primary);
+}
+img {
+  width: 15px;
+  height: 15px;
+}

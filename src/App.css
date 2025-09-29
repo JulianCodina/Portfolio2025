@@ -1,0 +1,8 @@
+main {
+  background-color: var(--bg);
+  padding: 50px 100px 30px;
+  width: 50%;
+  height: auto;
+  margin: 0;
+  border-radius: 20px;
+}
