@@ -1,0 +1,52 @@
+.AboutContainer {
+  padding: 3px 0 0;
+  transition: all 0.2s ease;
+}
+.AboutContainer:hover {
+  padding: 0 0 3px;
+}
+.AboutContainer .card {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  background-color: var(--bg-1);
+  border-top: 2px solid var(--bg-2);
+  box-sizing: border-box;
+  box-shadow: var(--shadow-main);
+  padding: 15px 5px 15px 12px;
+  border-radius: 15px;
+  gap: 12px;
+  width: 240px;
+  transition: box-shadow 0.2s ease;
+}
+.AboutContainer .card:hover {
+  box-shadow: var(--shadow-tall);
+}
+.AboutContainer .texts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  height: 100%;
+}
+
+.AboutContainer .img {
+  width: 30px;
+  height: 30px;
+  opacity: 0.85;
+  align-self: center;
+  background-color: var(--bg-1);
+}
+
+@media (max-width: 768px) {
+  .AboutContainer .card {
+    min-height: 100px;
+  }
+  .AboutContainer .texts .text {
+    height: 30px;
+  }
+  .AboutContainer .img {
+    width: 20px;
+    height: 20px;
+  }
+}

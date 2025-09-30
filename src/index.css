@@ -18,7 +18,7 @@
   --bg-2: #ffffff;
   --bg-less: #e0e0e0;
 
-  --text-primary: #1c1e21;
+  --text-primary: #1c1e21ee;
   --text-secondary: #3a3c40;
   --text-tertiary: #7c8085;
   --text-error: #dc3545;
@@ -33,7 +33,7 @@
   --secondary-bg: #d8f6ea;
 
   --shadow-main: 0px 2px 2px 0px hsla(0, 0%, 0%, 0.25);
-  --shadow-tall: 0px 4px 2px 0px hsla(0, 0%, 0%, 0.25);
+  --shadow-tall: 0px 5px 4px 0px hsla(0, 0%, 0%, 0.2);
 
   --scrollbar-thumb: #0e556c69;
   --scrollbar-thumb-hover: #0e556cb8;
@@ -91,7 +91,7 @@ h1 {
 }
 h2 {
   color: var(--text-primary);
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 700;
   margin: 0;
 }
@@ -106,26 +106,26 @@ h2::after {
 }
 h3 {
   color: var(--text-primary);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0;
 }
 .p-big {
   color: var(--text-secondary);
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 300;
   margin: 0;
 }
 p {
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   margin: 0;
   line-height: 1.5;
 }
 .p-small {
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
   margin: 0;
 }
@@ -176,5 +176,26 @@ p {
   }
   to {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  .p-big {
+    font-size: 19px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .p-small {
+    font-size: 10px;
   }
 }

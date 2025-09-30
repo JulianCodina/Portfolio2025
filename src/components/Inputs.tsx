@@ -1,29 +1,29 @@
 import style from "./Inputs.module.css";
-import type { ReactNode } from "react";
 
-interface PropsOutlined {
+interface PropsButtons {
   icon1?: string;
+  text: string;
   icon2?: string;
-  children: ReactNode;
+  onClick?: () => void;
 }
-export function BtnOutlined({ icon1, icon2, children }: PropsOutlined) {
+export function BtnOutlined({ icon1, text, icon2, onClick }: PropsButtons) {
   return (
     <div className={style.container}>
-      <div className={style.btn_outlined}>
+      <div className={style.btn_outlined} onClick={onClick}>
         {!!icon1 && <img src={icon1} alt="icon1" />}
-        {children}
+        {!!text && <p>{text}</p>}
         {!!icon2 && <img src={icon2} alt="icon2" />}
       </div>
     </div>
   );
 }
 
-export function BtnSolid({ icon1, icon2, children }: PropsOutlined) {
+export function BtnSolid({ icon1, text, icon2, onClick }: PropsButtons) {
   return (
     <div className={style.container}>
-      <div className={style.btn_solid}>
+      <div className={style.btn_solid} onClick={onClick}>
         {!!icon1 && <img src={icon1} alt="icon1" />}
-        {children}
+        {!!text && <p>{text}</p>}
         {!!icon2 && <img src={icon2} alt="icon2" />}
       </div>
     </div>

@@ -1,0 +1,102 @@
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--bg-1);
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+}
+.Header {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  padding: 8px;
+  color: var(--primary-text);
+  z-index: 10;
+}
+.Header * {
+  display: flex;
+  align-items: center;
+}
+header .left {
+  gap: 10px;
+}
+header .buttons {
+  gap: 5px;
+}
+header .buttons div {
+  display: flex;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: var(--bg-1);
+  align-items: center;
+  justify-content: center;
+}
+header .buttons div:hover {
+  background-color: var(--bg-less);
+}
+header .buttons img {
+  width: 20px;
+  height: 20px;
+}
+header .theme {
+  cursor: pointer;
+}
+
+header .language {
+  cursor: pointer;
+}
+header nav {
+  gap: 25px;
+  padding: 0 5px;
+}
+header nav h3 {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.unselected:hover {
+  color: var(--text-tertiary);
+}
+header .selected {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--primary);
+}
+header .selected::after {
+  content: "";
+  margin: 3px 0 -5px;
+  width: 100%;
+  height: 2px;
+  border-radius: 20px;
+  background-color: var(--primary);
+  animation: selected 0.2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes selected {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Header {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    padding: 8px;
+    color: var(--primary-text);
+    z-index: 10;
+  }
+  .Header .left span {
+    display: none;
+  }
+}

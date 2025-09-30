@@ -34,7 +34,14 @@
 .btn_solid * {
   color: var(--primary);
 }
+.btn_outlined img {
+  opacity: 0.8;
+}
 img {
   width: 15px;
   height: 15px;
+}
+.btn_outlined *,
+.btn_solid * {
+  text-wrap: nowrap;
 }
