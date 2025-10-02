@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 #about .header {
@@ -55,8 +55,7 @@
 #about .about-me {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 30px;
+  gap: 20px 15px;
 }
 #about .about-me .body {
   display: flex;
@@ -64,6 +63,9 @@
   align-items: flex-start;
   gap: 15px;
   width: 75%;
+}
+#about .about-me .body .texts {
+  text-wrap: balance;
 }
 #about .about-me .body .especialidades {
   display: flex;
@@ -91,7 +93,7 @@
 }
 
 .flip-card {
-  width: 25%;
+  width: auto;
   height: 100%;
   min-width: 130px;
   max-width: 180px;
@@ -154,7 +156,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 15px;
   flex-wrap: wrap;
 }
@@ -170,5 +172,8 @@
   }
   #about .about-me .body {
     width: 100%;
+  }
+  #about .CardContainer {
+    justify-content: center;
   }
 }

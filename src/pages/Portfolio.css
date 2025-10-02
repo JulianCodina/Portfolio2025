@@ -1,0 +1,104 @@
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-top: 15px;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.experience .body {
+  display: flex;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.experience .line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 4px;
+  margin: 0 8px;
+  height: 80%;
+  background-color: var(--primary);
+  border-radius: 50px;
+}
+
+.experience .container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 15px;
+  padding-left: 40px;
+}
+#portfolio .container .card {
+  position: relative;
+}
+
+.experience .container .card:before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 15px;
+  height: 15px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+}
+
+#portfolio .projects {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+.projects .container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+#portfolio .stacks {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.stacks .container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+#portfolio .certificates {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+#portfolio .footer {
+  display: flex;
+  align-self: flex-end;
+  height: 35px;
+}
+
+@media (max-width: 768px) {
+  #portfolio {
+    padding-top: 0px;
+  }
+}

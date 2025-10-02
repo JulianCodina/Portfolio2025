@@ -1,15 +1,16 @@
 import "./About.css";
 import { BtnOutlined } from "../components/Inputs";
 import { useThemedAsset } from "../theme";
-import { AboutCard } from "../components/cards";
+import { AboutCard } from "../components/Cards";
 import { useLanguage } from "../contexts/LanguageContext";
-
+import { useTab } from "../contexts/TabContext";
 // Imágenes
-import photo from "../assets/photo.png";
-import pixar from "../assets/pixar.png";
+import photo from "../assets/ui/photo.png";
+import pixar from "../assets/ui/pixar.png";
 
 function About() {
   const { language } = useLanguage();
+  const { setTab } = useTab();
   //Iconos
   const cv = useThemedAsset("cv");
   const linkedin = useThemedAsset("linkedin");
@@ -187,7 +188,12 @@ function About() {
         </div>
       </div>
       <div className="footer">
-        <BtnOutlined icon1="" text={texts[language].portfolio} icon2={right} />
+        <BtnOutlined
+          icon1=""
+          text={texts[language].portfolio}
+          icon2={right}
+          onClick={() => setTab("portfolio")}
+        />
       </div>
     </section>
   );

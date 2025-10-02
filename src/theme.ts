@@ -40,7 +40,7 @@ type AssetMap = Record<string, Partial<Record<Theme, string>>>;
 
 // Carga todas las imágenes dentro de src/assets con Vite (build-time)
 // Convenciones de nombre: "cvL.png", "cvD.png" -> key "cv" + tema L/D
-const modules = import.meta.glob("./assets/*.{png,jpg,jpeg,svg,webp}", {
+const modules = import.meta.glob("./assets/**/*.{png,jpg,jpeg,svg,webp}", {
   eager: true,
   import: "default",
 });

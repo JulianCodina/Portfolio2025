@@ -3,11 +3,11 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
 import { useState, useEffect } from "react";
 
-import dark from "../assets/dark.png";
-import light from "../assets/light.png";
-import es from "../assets/mexico.png";
-import en from "../assets/eeuu.png";
-import pt from "../assets/brazil.png";
+import dark from "../assets/theme & language/dark.png";
+import light from "../assets/theme & language/light.png";
+import es from "../assets/theme & language/mexico.png";
+import en from "../assets/theme & language/eeuu.png";
+import pt from "../assets/theme & language/brazil.png";
 
 export default function Header() {
   const { language, setLanguage } = useLanguage();

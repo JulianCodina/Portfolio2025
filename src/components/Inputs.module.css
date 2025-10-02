@@ -11,7 +11,7 @@
   align-items: center;
   color: var(--text-primary);
   border: 1px solid var(--text-primary);
-  padding: 5px 8px;
+  padding: 5px 5px;
   border-radius: 8px;
   gap: 5px;
   width: fit-content;
@@ -22,7 +22,7 @@
   color: var(--primary);
   background-color: var(--bg-2);
   box-shadow: var(--shadow-main);
-  padding: 5px 8px;
+  padding: 5px 5px;
   border-radius: 8px;
   gap: 5px;
   width: fit-content;
