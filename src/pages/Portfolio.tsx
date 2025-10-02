@@ -6,35 +6,35 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
 
 // Imágenes
-import intersoft from "../assets/preview/Intersoft.png";
-import sentirsebien from "../assets/preview/sentirsebien.png";
-import podcast from "../assets/preview/podcast.jpg";
-import chatbot from "../assets/preview/chatbot.jpg";
-import portfolio from "../assets/preview/portfolio.jpg";
+import intersoft from "/preview/Intersoft.png";
+import sentirsebien from "/preview/sentirsebien.png";
+import podcast from "/preview/podcast.jpg";
+import chatbot from "/preview/chatbot.jpg";
+import portfolio from "/preview/portfolio.jpg";
 
 // Stack
-import ReactJS from "../assets/stack/react.png";
-import TypeScript from "../assets/stack/typescript.png";
-import JavaScript from "../assets/stack/javascript.png";
-import HTML from "../assets/stack/html.png";
-import CSS from "../assets/stack/css.png";
-import Figma from "../assets/stack/figma.png";
-import Python from "../assets/stack/python.png";
-import Java from "../assets/stack/java.png";
-import CSharp from "../assets/stack/csharp.png";
-import MySQL from "../assets/stack/mysql.png";
-import SupaBase from "../assets/stack/supabase.png";
-import MongoDB from "../assets/stack/mongodb.png";
+import ReactJS from "/stack/react.png";
+import TypeScript from "/stack/typescript.png";
+import JavaScript from "/stack/javascript.png";
+import HTML from "/stack/html.png";
+import CSS from "/stack/css.png";
+import Figma from "/stack/figma.png";
+import Python from "/stack/python.png";
+import Java from "/stack/java.png";
+import CSharp from "/stack/csharp.png";
+import MySQL from "/stack/mysql.png";
+import SupaBase from "/stack/supabase.png";
+import MongoDB from "/stack/mongodb.png";
 
 // Certificados
-import devweb from "../assets/preview/devweb.webp";
-import MasterCSS from "../assets/preview/mastercss.webp";
-import ReactCert from "../assets/preview/react.webp";
-import PythonCert from "../assets/preview/python.webp";
-import Testing from "../assets/preview/testing.webp";
-import Design from "../assets/preview/design.webp";
-import En from "../assets/preview/ingles.webp";
-import Pt from "../assets/preview/portugues.webp";
+import devweb from "/preview/devweb.webp";
+import MasterCSS from "/preview/mastercss.webp";
+import ReactCert from "/preview/react.webp";
+import PythonCert from "/preview/python.webp";
+import Testing from "/preview/testing.webp";
+import Design from "/preview/design.webp";
+import En from "/preview/ingles.webp";
+import Pt from "/preview/portugues.webp";
 
 function Portfolio() {
   const { language } = useLanguage();

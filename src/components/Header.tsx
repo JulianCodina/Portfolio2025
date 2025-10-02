@@ -3,11 +3,11 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
 import { useState, useEffect } from "react";
 
-import dark from "../assets/theme & language/dark.png";
-import light from "../assets/theme & language/light.png";
-import es from "../assets/theme & language/mexico.png";
-import en from "../assets/theme & language/eeuu.png";
-import pt from "../assets/theme & language/brazil.png";
+import dark from "/theme & language/dark.png";
+import light from "/theme & language/light.png";
+import es from "/theme & language/mexico.png";
+import en from "/theme & language/eeuu.png";
+import pt from "/theme & language/brazil.png";
 
 export default function Header() {
   const { language, setLanguage } = useLanguage();
@@ -35,18 +35,18 @@ export default function Header() {
     es: {
       about: "Sobre Mí",
       portfolio: "Portafolio",
-      contact: "Contacto"
+      contact: "Contacto",
     },
     en: {
       about: "About Me",
       portfolio: "Portfolio",
-      contact: "Contact"
+      contact: "Contact",
     },
     pt: {
       about: "Sobre Mim",
       portfolio: "Portfólio",
-      contact: "Contato"
-    }
+      contact: "Contato",
+    },
   };
 
   return (
@@ -78,24 +78,24 @@ export default function Header() {
           </div>
         </div>
         <nav>
-            <h3
-              className={tab === "about" ? style.selected : style.unselected}
-              onClick={() => setTab("about")}
-            >
-              {navTexts[language].about}
-            </h3>
-            <h3
-              className={tab === "portfolio" ? style.selected : style.unselected}
-              onClick={() => setTab("portfolio")}
-            >
-              {navTexts[language].portfolio}
-            </h3>
-            <h3
-              className={tab === "contact" ? style.selected : style.unselected}
-              onClick={() => setTab("contact")}
-            >
-              {navTexts[language].contact}
-            </h3>
+          <h3
+            className={tab === "about" ? style.selected : style.unselected}
+            onClick={() => setTab("about")}
+          >
+            {navTexts[language].about}
+          </h3>
+          <h3
+            className={tab === "portfolio" ? style.selected : style.unselected}
+            onClick={() => setTab("portfolio")}
+          >
+            {navTexts[language].portfolio}
+          </h3>
+          <h3
+            className={tab === "contact" ? style.selected : style.unselected}
+            onClick={() => setTab("contact")}
+          >
+            {navTexts[language].contact}
+          </h3>
         </nav>
       </div>
     </header>

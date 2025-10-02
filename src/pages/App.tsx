@@ -2,8 +2,9 @@ import "./App.css";
 import About from "./About";
 import Portfolio from "./Portfolio";
 import Header from "../components/Header";
-import background from "../assets/ui/background.jpg";
 import { useTab } from "../contexts/TabContext";
+
+import background from "/ui/background.jpg";
 
 const App = () => {
   const { tab } = useTab() || "about";

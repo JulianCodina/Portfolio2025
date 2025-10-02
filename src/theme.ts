@@ -5,7 +5,9 @@ export type Theme = "light" | "dark";
 // Lee el tema actual desde el atributo data-theme del <html>
 export function getTheme(): Theme {
   if (typeof document === "undefined") return "light";
-  return (document.documentElement.getAttribute("data-theme") as Theme) || "light";
+  return (
+    (document.documentElement.getAttribute("data-theme") as Theme) || "light"
+  );
 }
 
 // Suscripción al cambio del atributo data-theme usando MutationObserver
@@ -25,7 +27,11 @@ function subscribe(callback: () => void) {
 
 // Hook reactivo para obtener el tema actual y re-renderizar cuando cambia
 export function useTheme(): Theme {
-  const theme = useSyncExternalStore<Theme>(subscribe, getTheme, () => "light" as Theme);
+  const theme = useSyncExternalStore<Theme>(
+    subscribe,
+    getTheme,
+    () => "light" as Theme
+  );
   return theme;
 }
 
@@ -38,16 +44,16 @@ export function useThemeImage<T>(lightValue: T, darkValue: T): T {
 // ------------- Themed assets (fusionado desde themeImages) -------------
 type AssetMap = Record<string, Partial<Record<Theme, string>>>;
 
-// Carga todas las imágenes dentro de src/assets con Vite (build-time)
+// Carga todas las imágenes dentro de public/icons con Vite (build-time)
 // Convenciones de nombre: "cvL.png", "cvD.png" -> key "cv" + tema L/D
-const modules = import.meta.glob("./assets/**/*.{png,jpg,jpeg,svg,webp}", {
+const modules = import.meta.glob("/public/icons/*.{png,jpg,jpeg,svg,webp}", {
   eager: true,
   import: "default",
 });
 
 // Construye el registro tema->url por clave base (cv, profile, home, ...)
 const ASSETS: AssetMap = Object.entries(modules).reduce((acc, [path, url]) => {
-  // path ejemplo: './assets/cvD.png'
+  // path ejemplo: '/icons/cvD.png'
   const file = path.split("/").pop() || "";
   const match = file.match(/^(.*?)([LD])\.(png|jpg|jpeg|svg|webp)$/i);
   if (!match) return acc;

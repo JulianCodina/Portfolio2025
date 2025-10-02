@@ -5,8 +5,8 @@ import { AboutCard } from "../components/Cards";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
 // Imágenes
-import photo from "../assets/ui/photo.png";
-import pixar from "../assets/ui/pixar.png";
+import photo from "/ui/photo.png";
+import pixar from "/ui/pixar.png";
 
 function About() {
   const { language } = useLanguage();
