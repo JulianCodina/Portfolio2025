@@ -26,7 +26,7 @@
   border-radius: 8px;
   gap: 5px;
   width: fit-content;
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 .container:hover .btn_solid {
   box-shadow: var(--shadow-tall);

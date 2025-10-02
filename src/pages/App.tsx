@@ -1,6 +1,7 @@
 import "./App.css";
 import About from "./About";
 import Portfolio from "./Portfolio";
+import Contact from "./Contact";
 import Header from "../components/Header";
 import { useTab } from "../contexts/TabContext";
 
@@ -18,6 +19,7 @@ const App = () => {
       <main>
         {tab === "about" && <About />}
         {tab === "portfolio" && <Portfolio />}
+        {tab === "contact" && <Contact />}
       </main>
     </>
   );

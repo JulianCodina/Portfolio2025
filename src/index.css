@@ -36,8 +36,8 @@
   --shadow-main: 0px 2px 2px 0px hsla(0, 0%, 0%, 0.25);
   --shadow-tall: 0px 5px 4px 0px hsla(0, 0%, 0%, 0.2);
 
-  --scrollbar-thumb: #a6a6a6;
-  --scrollbar-thumb-hover: #989898;
+  --scrollbar-thumb: #848484;
+  --scrollbar-thumb-hover: #6c6c6c;
   --scrollbar-track: #f1f1f1e6;
 }
 
@@ -62,8 +62,8 @@
   --primary-bg: #274138;
   --secondary-bg: rgb(46, 86, 72);
 
-  --scrollbar-thumb: #505050;
-  --scrollbar-thumb-hover: #5e5e5e;
+  --scrollbar-thumb: #6c6c6c;
+  --scrollbar-thumb-hover: #7c7c7c;
   --scrollbar-track: #383838;
 }
 
@@ -100,7 +100,7 @@ h2::after {
   content: "";
   display: block;
   width: 30px;
-  height: 3px;
+  height: 4px;
   background-color: var(--primary);
   border-radius: 50px;
   margin-top: 5px;

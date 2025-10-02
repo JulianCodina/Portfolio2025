@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 25px;
 }
 
 #about .header {
@@ -163,6 +163,7 @@
 #about .footer {
   display: flex;
   align-self: flex-end;
+  height: 33px;
 }
 
 @media screen and (max-width: 768px) {

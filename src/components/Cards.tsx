@@ -171,3 +171,23 @@ export function Certificate({ content }: Certificates) {
     </div>
   );
 }
+
+interface ContactCard {
+  img?: string;
+  title: string;
+  sub?: string;
+}
+
+export function ContactCard({ img, title, sub }: ContactCard) {
+  return (
+    <div className={style.Contact}>
+      <div className={style.item}>
+        <img src={img} className={style.img} alt={title} />
+        <div className={style.texts}>
+          <p className={style.title}>{title}</p>
+          {sub && <p className="p-small">{sub}</p>}
+        </div>
+      </div>
+    </div>
+  );
+}

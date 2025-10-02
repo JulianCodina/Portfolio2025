@@ -178,15 +178,15 @@ function Portfolio() {
         points: [
           "Especializado em Frontend, responsável pela construção da interface do usuário e lógica de negócios no lado do cliente.",
           "Design e construção do painel de administração (CMS).",
-          "Uso de TypeScript para criar componentes robustos e escaláveis em ReactJS.",
-          "Suporte a novos integrantes da equipe, orientando-os no processo de integração e compreensão do código.",
+          "Uso de TypeScript para criar componentes robustos e escaláveis en ReactJS.",
+          "Apoyo a un nuevo integrante del equipo, guiándolo en el proceso de integración y en la comprensión del código.",
         ],
       },
       projects: {
         podcast: {
           title: "Reprodutor de Podcast",
           description:
-            "Aplicativo web com integração de API, inclui um sistema de usuários que permite salvar podcasts favoritos.",
+            "Aplicativo web con integración de API, incluye un sistema de usuarios que permite guardar podcasts favoritos.",
           buttons: {
             deploy: "Implantar",
             github: "GitHub",
@@ -279,7 +279,7 @@ function Portfolio() {
                 title: texts[language].projects.podcast.buttons.deploy,
               },
               {
-                action: "github",
+                action: "git",
                 url: "https://github.com/JulianCodina/PodcastPlayer",
                 title: texts[language].projects.podcast.buttons.github,
               },
@@ -298,7 +298,7 @@ function Portfolio() {
                 title: "Deploy",
               },
               {
-                action: "github",
+                action: "git",
                 url: "https://github.com/JulianCodina/IAzul-Chatbot",
                 title: "Github",
               },
@@ -319,7 +319,7 @@ function Portfolio() {
             text={texts[language].projects.portfolio.description}
             buttons={[
               {
-                action: "github",
+                action: "git",
                 url: "https://github.com/JulianCodina/Portfolio2025",
                 title: "Github",
               },

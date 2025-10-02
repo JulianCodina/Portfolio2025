@@ -248,6 +248,7 @@
   width: 100%;
   background-color: var(--bg-less);
   border-bottom: 2px solid var(--bg-2);
+  box-shadow: inset var(--shadow-main);
   border-radius: 20px;
   padding: 10px 0 7px;
 }
@@ -267,6 +268,7 @@
   background-color: var(--scrollbar-thumb);
   opacity: 0.5;
   border-radius: 4px;
+  border: none;
   transition: all 0.2s ease;
 }
 .Carrousel .container::-webkit-scrollbar-thumb:hover {
