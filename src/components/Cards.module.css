@@ -340,7 +340,7 @@
   background-color: var(--bg-1);
   border-top: 2px solid var(--bg-2);
   box-shadow: var(--shadow-main);
-  transition: all 0.3s ease;
+  transition: height 0.3s ease, width 0.3s ease;
 }
 .Contact .img .icon {
   height: 60%;

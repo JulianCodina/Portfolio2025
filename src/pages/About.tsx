@@ -23,7 +23,10 @@ function About() {
   const texts = {
     es: {
       title: "Sobre Mí",
-      text: "¡Hola! Soy Julián Codina, técnico en programación con más de un año de experiencia en el desarrollo web intuitivo y amigable para el usuario. A lo largo de mi trayectoria, he tenido la oportunidad de colaborar en diferentes áreas como backend, frontend, diseño y gestión de bases de datos, lo cual me ha permitido aprender mucho de ellos.",
+      text: [
+        "¡Hola! Soy Julián Codina, técnico en programación con experiencia en desarrollo web intuitivo y amigable para el usuario.",
+        "He colaborado en diferentes áreas como backend, frontend, diseño y gestión de bases de datos, lo cual me ha ayudado a aprender y formarme como desarrollador.",
+      ],
       especialidades: "Mis especialidades son ",
       role: "Desarrollador Full Stack",
       jobTitle: "Técnico en Programación",
@@ -45,7 +48,10 @@ function About() {
     },
     en: {
       title: "About Me",
-      text: "Hello! I'm Julian Codina, a technician in programming with more than a year of experience in web development intuitive and user-friendly. Throughout my career, I had the opportunity to collaborate in different areas such as backend, frontend, design and database management, which allowed me to learn a lot from them.",
+      text: [
+        "Hi! I'm Julián Codina, a programming technician with experience in intuitive and user-friendly web development.",
+        "I've collaborated in different areas such as backend, frontend, design, and database management, which has helped me learn and shape myself as a developer.",
+      ],
       especialidades: "My specialties are ",
       role: "Full Stack Developer",
       jobTitle: "Programming Technician",
@@ -67,7 +73,10 @@ function About() {
     },
     pt: {
       title: "Sobre Mim",
-      text: "Olá! Sou Julian Codina, técnico em programação com mais de um ano de experiência no desenvolvimento web intuitivo e amigável para o usuário. Ao longo da minha trajetória, tive a oportunidade de colaborar em diferentes áreas como backend, frontend, design e gerenciamento de bancos de dados, o que me permitiu aprender muito deles.",
+      text: [
+        "Olá! Sou o Julián Codina, técnico em programação com experiência no desenvolvimento web intuitivo e amigável para o usuário.",
+        "Eu colaborei em diferentes áreas como backend, frontend, design e gerenciamento de bancos de dados, o que me permitiu aprender e formar como desenvolvedor.",
+      ],
       especialidades: "Minhas especialidades ",
       role: "Desenvolvedor Full Stack",
       jobTitle: "Técnico em Programação",
@@ -147,7 +156,8 @@ function About() {
         <div className="body">
           <h2>{texts[language].title}</h2>
           <div className="texts">
-            <p>{texts[language].text}</p>
+            <p>{texts[language].text[0]}</p>
+            <p>{texts[language].text[1]}</p>
             <p className="especialidades">
               {texts[language].especialidades}
               <span id="java">Java</span> <span id="python">Python</span>{" "}
