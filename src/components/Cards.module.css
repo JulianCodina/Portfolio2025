@@ -314,6 +314,54 @@
   box-shadow: var(--shadow-tall);
 }
 
+.Contact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-end;
+  height: 110px;
+  width: 90px;
+  cursor: pointer;
+}
+.Contact .img {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: var(--bg-1);
+  border-top: 2px solid var(--bg-2);
+  box-shadow: var(--shadow-main);
+  transition: all 0.3s ease;
+}
+.Contact .img .icon {
+  height: 60%;
+  width: 60%;
+  transition: all 0.3s ease;
+}
+.Contact:hover .img {
+  height: 65px;
+  width: 65px;
+}
+.Contact:hover .img .icon {
+  height: 70%;
+  width: 70%;
+}
+.Contact .texts {
+  height: 35px;
+}
+.Contact .title {
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .AboutContainer .card {
     min-height: 100px;

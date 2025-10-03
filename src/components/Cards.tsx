@@ -176,17 +176,18 @@ interface ContactCard {
   img?: string;
   title: string;
   sub?: string;
+  onClick?: () => void;
 }
 
-export function ContactCard({ img, title, sub }: ContactCard) {
+export function ContactCard({ img, title, sub, onClick }: ContactCard) {
   return (
-    <div className={style.Contact}>
-      <div className={style.item}>
-        <img src={img} className={style.img} alt={title} />
-        <div className={style.texts}>
-          <p className={style.title}>{title}</p>
-          {sub && <p className="p-small">{sub}</p>}
-        </div>
+    <div className={style.Contact} onClick={onClick}>
+      <div className={style.img}>
+        <img src={img} className={style.icon} alt={title} />
+      </div>
+      <div className={style.texts}>
+        <p className={style.title}>{title}</p>
+        {sub && <p className="p-small">{sub}</p>}
       </div>
     </div>
   );

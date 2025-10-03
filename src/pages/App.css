@@ -5,6 +5,7 @@ main {
   padding: 20px 5% 20px;
   width: 60%;
   height: auto;
+  min-height: 607px;
   border-radius: 20px;
   box-sizing: border-box;
   animation: intro 0.5s ease-in-out;

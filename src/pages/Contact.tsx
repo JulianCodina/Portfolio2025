@@ -4,6 +4,7 @@ import { useThemedAsset } from "../theme";
 import { ContactCard } from "../components/Cards";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
+import Map from "../components/Map";
 
 function Contact() {
   const { language } = useLanguage();
@@ -33,42 +34,87 @@ function Contact() {
     },
   };
 
+  function handleCopy(valor: string) {
+    navigator.clipboard.writeText(valor);
+  }
+
   return (
     <section id="contact">
-      <h2>{texts[language].title}</h2>
-      <div className="body">
-        <div className="main">
-          <div className="map"></div>
-          <div className="form">
-            <form action="">
+      <div className="main">
+        <h2>{texts[language].title}</h2>
+        <div className="body">
+          <div className="map">
+            <Map
+              center={[-27.45113166461427, -58.98651292532432]}
+              focus="Mi localidad"
+            />
+          </div>
+          <form className="form">
+            <p className="p-big">
+              Enviame un <span>E-MAIL</span>
+            </p>
+            <div className="top">
               <input type="email" placeholder="Email" />
               <input type="text" placeholder="Nombre" />
-              <textarea placeholder="Mensaje"></textarea>
+            </div>
+            <textarea placeholder="Mensaje"></textarea>
+            <div className="button">
               <BtnSolid
                 icon1={send}
                 text="Enviar Mensaje"
                 icon2=""
                 onClick={() => {}}
               />
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-        <div className="container">
-          <ContactCard
-            img={email}
-            title={"Direccion Email"}
-            sub={"depedrojulianismael@gmail.com"}
-          />
-          <ContactCard img={phone} title={"Teléfono"} sub={"+54 3624 249451"} />
-          <ContactCard
-            img={gps}
-            title={"Localidad"}
-            sub={"Resistnecia, Chaco ARG"}
-          />
-          <ContactCard img={linkedin} title={"Localidad"} />
-          <ContactCard img={instagram} title={"Localidad"} />
-          <ContactCard img={facebook} title={"Facebook"} />
-        </div>
+      </div>
+
+      <div className="container">
+        <ContactCard
+          img={email}
+          title={"Direccion Gmail"}
+          sub={"depedrojulianismael"}
+          onClick={() => handleCopy("depedrojulianismael@gmail.com")}
+        />
+        <ContactCard
+          img={phone}
+          title={"Teléfono"}
+          sub={"+54 3624 249451"}
+          onClick={() => handleCopy("+54 3624 249451")}
+        />
+        <ContactCard
+          img={gps}
+          title={"Localidad"}
+          sub={"Resistencia, Chaco"}
+          onClick={() =>
+            window.open("https://maps.app.goo.gl/n7DKDjbCHE68Hcvs7", "_blank")
+          }
+        />
+        <ContactCard
+          img={linkedin}
+          title={"Linkedin"}
+          onClick={() =>
+            window.open("https://www.linkedin.com/in/julián-codina/", "_blank")
+          }
+        />
+        <ContactCard
+          img={instagram}
+          title={"Instagram"}
+          onClick={() =>
+            window.open("https://www.instagram.com/juliancodina/", "_blank")
+          }
+        />
+        <ContactCard
+          img={facebook}
+          title={"Facebook"}
+          onClick={() =>
+            window.open(
+              "https://www.facebook.com/julianismael.codinadepedro",
+              "_blank"
+            )
+          }
+        />
       </div>
 
       <div className="footer">
