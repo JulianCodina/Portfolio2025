@@ -8,6 +8,11 @@ import { useTab } from "../contexts/TabContext";
 import photo from "/ui/photo.png";
 import pixar from "/ui/pixar.png";
 
+const curriculum_vitae_es =
+  "https://drive.google.com/file/d/1fmL_yLQiS_hc3yKvczCJyfnfUN_nfn7a/view";
+const curriculum_vitae_en =
+  "https://drive.google.com/file/d/1OJwFm0ErmnBv8dXxS04G7raK9q4d43-h/view";
+
 function About() {
   const { language } = useLanguage();
   const { setTab } = useTab();
@@ -100,15 +105,9 @@ function About() {
 
   function handleCV() {
     if (language === "es") {
-      window.open(
-        "https://drive.google.com/file/d/1fmL_yLQiS_hc3yKvczCJyfnfUN_nfn7a/view",
-        "_blank"
-      );
+      window.open(curriculum_vitae_es, "_blank");
     } else {
-      window.open(
-        "https://drive.google.com/file/d/1OJwFm0ErmnBv8dXxS04G7raK9q4d43-h/view",
-        "_blank"
-      );
+      window.open(curriculum_vitae_en, "_blank");
     }
   }
 

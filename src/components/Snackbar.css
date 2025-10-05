@@ -1,0 +1,72 @@
+@keyframes slideInUp {
+  from {
+    transform: translate3d(-50%, 20px, 0);
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translate3d(-50%, 0, 0);
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(-50%, 20px, 0);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.snackbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  padding: 14px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, opacity;
+  pointer-events: auto;
+}
+
+.snackbar.show {
+  animation: slideInUp 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.snackbar.hide {
+  animation: slideOutDown 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+.snackbar.success {
+  background-color: #589a5b;
+  border-left: 4px solid #2e7d32;
+}
+
+.snackbar.error {
+  background-color: #e53935;
+  border-left: 4px solid #b71c1c;
+}
+
+.snackbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

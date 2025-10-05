@@ -1,15 +1,19 @@
+import { useRef, useState } from "react";
 import "./Contact.css";
 import { BtnOutlined, BtnSolid, TextField } from "../components/Inputs";
-import { useThemedAsset } from "../theme";
+import { Snackbar } from "../components/Snackbar";
 import { ContactCard } from "../components/Cards";
+import Map from "../components/Map";
+import { useThemedAsset } from "../theme";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
-import Map from "../components/Map";
-import { useState } from "react";
+
+import emailjs from "emailjs-com";
 
 function Contact() {
   const { language } = useLanguage();
   const { setTab } = useTab();
+
   //Iconos
   const left = useThemedAsset("left");
   const emailIcon = useThemedAsset("email");
@@ -20,38 +24,164 @@ function Contact() {
   const facebook = useThemedAsset("facebook");
   const send = useThemedAsset("send");
 
-  const [email, setEmail] = useState<string>("");
-  const [name, setName] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-  const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
-  const [isValidName, setIsValidName] = useState<boolean>(false);
-  const [isValidMessage, setIsValidMessage] = useState<boolean>(false);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [isValidName, setIsValidName] = useState(false);
+  const [isValidMessage, setIsValidMessage] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [snackbar, setSnackbar] = useState<{
+    message: string;
+    type: "success" | "error";
+    duration?: number;
+  } | null>(null);
+
+  const form = useRef<HTMLFormElement>(null);
 
   const texts = {
     es: {
       title: "Contacto",
       portfolio: "Portafolio",
+      mapFocus: "Esta es mi ciudad",
+      sendMeEmailIntro: "Enviame un",
+      emailFieldLabel: "Correo electrónico",
+      emailFieldError: "Ingrese un email válido",
+      nameFieldLabel: "Nombre completo",
+      nameFieldError: "Ingrese un nombre",
+      messageFieldLabel: "Mensaje",
+      messageFieldError: "Ingrese algún mensaje",
+      sendButton: "Enviar mensaje",
+      sending: "Enviando",
+      successMessage: "¡Mensaje enviado correctamente!",
+      errorMessage: "Por favor, completa todos los campos correctamente.",
+      sendError:
+        "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
+      copied: "Copiado al portapapeles",
+      gmailTitle: "Direccion Gmail",
+      gmailSub: "depedrojulianismael",
+      phoneTitle: "Teléfono",
+      phoneSub: "+54 3624 249451",
+      locationTitle: "Localidad",
+      locationSub: "Resistencia, Chaco",
     },
     en: {
       title: "Contact",
       portfolio: "Portfolio",
+      mapFocus: "This is my city",
+      sendMeEmailIntro: "Send me an",
+      emailFieldLabel: "Email address",
+      emailFieldError: "Enter a valid email",
+      nameFieldLabel: "Full name",
+      nameFieldError: "Enter a name",
+      messageFieldLabel: "Message",
+      messageFieldError: "Enter a message",
+      sendButton: "Send message",
+      sending: "Sending",
+      successMessage: "Message sent successfully!",
+      errorMessage: "Please complete all fields correctly.",
+      sendError: "Error sending the message. Please try again later.",
+      copied: "Copied to clipboard",
+      gmailTitle: "Gmail Address",
+      gmailSub: "depedrojulianismael",
+      phoneTitle: "Phone",
+      phoneSub: "+54 3624 249451",
+      locationTitle: "Location",
+      locationSub: "Resistencia, Chaco",
     },
     pt: {
       title: "Contato",
       portfolio: "Portfólio",
+      mapFocus: "Esta é a minha cidade",
+      sendMeEmailIntro: "Envie-me um",
+      emailFieldLabel: "Endereço de e-mail",
+      emailFieldError: "Insira um e-mail válido",
+      nameFieldLabel: "Nome completo",
+      nameFieldError: "Insira um nome",
+      messageFieldLabel: "Mensagem",
+      messageFieldError: "Insira uma mensagem",
+      sendButton: "Enviar mensagem",
+      sending: "Enviando",
+      successMessage: "Mensagem enviada com sucesso!",
+      errorMessage: "Por favor, preencha todos os campos corretamente.",
+      sendError:
+        "Erro ao enviar a mensagem. Por favor, tente novamente mais tarde.",
+      copied: "Copiado para a área de transferência",
+      gmailTitle: "Endereço Gmail",
+      gmailSub: "depedrojulianismael",
+      phoneTitle: "Telefone",
+      phoneSub: "+54 3624 249451",
+      locationTitle: "Localidade",
+      locationSub: "Resistencia, Chaco",
     },
   };
 
-  function handleSubmit() {
+  const handleSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+
     if (!isValidEmail || !isValidName || !isValidMessage) {
-      alert("Por favor, complete todos los campos correctamente.");
+      setSnackbar({
+        message: texts[language].errorMessage,
+        type: "error",
+        duration: 4000,
+      });
       return;
     }
-    alert(`Enviado correctamente: ${email} \n ${name} \n ${message}`);
-  }
+
+    setIsSubmitting(true);
+
+    const formData = {
+      time: new Intl.DateTimeFormat("es-AR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(new Date()),
+      user_name: name,
+      email: email,
+      message: message,
+    };
+
+    try {
+      const result = await emailjs.send(
+        "service_7us04te",
+        "template_ssqskz4",
+        formData,
+        "vpN5u16jjxNL3dRm1"
+      );
+
+      if (result.status === 200) {
+        setSnackbar({
+          message: texts[language].successMessage,
+          type: "success",
+          duration: 4000,
+        });
+        setEmail("");
+        setName("");
+        setMessage("");
+        setIsValidEmail(false);
+        setIsValidName(false);
+        setIsValidMessage(false);
+        if (form.current) form.current.reset();
+      }
+    } catch (error) {
+      console.error("Error al enviar el mensaje:", error);
+      setSnackbar({
+        message: texts[language].sendError,
+        type: "error",
+        duration: 4000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   function handleCopy(valor: string) {
     navigator.clipboard.writeText(valor);
+    setSnackbar({
+      message: texts[language].copied,
+      type: "success",
+      duration: 1000,
+    });
   }
 
   return (
@@ -62,27 +192,34 @@ function Contact() {
           <div className="map">
             <Map
               center={[-27.45113166461427, -58.98651292532432]}
-              focus="Mi localidad"
+              focus={texts[language].mapFocus}
             />
           </div>
-          <form className="form">
+          <form
+            className="form"
+            ref={form}
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit();
+            }}
+          >
             <p className="p-big">
-              Enviame un <span>E-MAIL</span>
+              {texts[language].sendMeEmailIntro} <span>E-MAIL</span>
             </p>
             <div className="textFields">
               <div className="top">
                 <TextField
                   type="email"
-                  label="Dirección email"
-                  error="Ingrese un email valido"
+                  label={texts[language].emailFieldLabel}
+                  error={texts[language].emailFieldError}
                   value={email}
                   setValue={setEmail}
                   setIsValid={setIsValidEmail}
                 />
                 <TextField
                   type="text"
-                  label="Nombre completo"
-                  error="Ingrese un nombre"
+                  label={texts[language].nameFieldLabel}
+                  error={texts[language].nameFieldError}
                   value={name}
                   setValue={setName}
                   setIsValid={setIsValidName}
@@ -90,21 +227,45 @@ function Contact() {
               </div>
               <TextField
                 type="textarea"
-                label="Mensaje"
-                error="Ingrese algún mensaje"
+                label={texts[language].messageFieldLabel}
+                error={texts[language].messageFieldError}
                 value={message}
                 setValue={setMessage}
                 setIsValid={setIsValidMessage}
               />
             </div>
             <div className="button">
-              <BtnSolid
-                icon1={send}
-                text="Enviar Mensaje"
-                icon2=""
-                onClick={handleSubmit}
-                disabled={!isValidEmail || !isValidName || !isValidMessage}
-              />
+              <button
+                type="submit"
+                disabled={
+                  !isValidEmail ||
+                  !isValidName ||
+                  !isValidMessage ||
+                  isSubmitting
+                }
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 0,
+                }}
+              >
+                <BtnSolid
+                  icon1={send}
+                  text={
+                    isSubmitting
+                      ? texts[language].sending
+                      : texts[language].sendButton
+                  }
+                  icon2=""
+                  disabled={
+                    !isValidEmail ||
+                    !isValidName ||
+                    !isValidMessage ||
+                    isSubmitting
+                  }
+                />
+              </button>
             </div>
           </form>
         </div>
@@ -113,20 +274,20 @@ function Contact() {
       <div className="container">
         <ContactCard
           img={emailIcon}
-          title={"Direccion Gmail"}
-          sub={"depedrojulianismael"}
+          title={texts[language].gmailTitle}
+          sub={texts[language].gmailSub}
           onClick={() => handleCopy("depedrojulianismael@gmail.com")}
         />
         <ContactCard
           img={phone}
-          title={"Teléfono"}
-          sub={"+54 3624 249451"}
+          title={texts[language].phoneTitle}
+          sub={texts[language].phoneSub}
           onClick={() => handleCopy("+54 3624 249451")}
         />
         <ContactCard
           img={gps}
-          title={"Localidad"}
-          sub={"Resistencia, Chaco"}
+          title={texts[language].locationTitle}
+          sub={texts[language].locationSub}
           onClick={() =>
             window.open("https://maps.app.goo.gl/n7DKDjbCHE68Hcvs7", "_blank")
           }
@@ -165,6 +326,15 @@ function Contact() {
           onClick={() => setTab("portfolio")}
         />
       </div>
+
+      {snackbar && (
+        <Snackbar
+          message={snackbar.message}
+          type={snackbar.type}
+          onClose={() => setSnackbar(null)}
+          duration={snackbar.duration || 5000}
+        />
+      )}
     </section>
   );
 }
