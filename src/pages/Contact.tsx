@@ -1,23 +1,31 @@
 import "./Contact.css";
-import { BtnOutlined, BtnSolid } from "../components/Inputs";
+import { BtnOutlined, BtnSolid, TextField } from "../components/Inputs";
 import { useThemedAsset } from "../theme";
 import { ContactCard } from "../components/Cards";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
 import Map from "../components/Map";
+import { useState } from "react";
 
 function Contact() {
   const { language } = useLanguage();
   const { setTab } = useTab();
   //Iconos
   const left = useThemedAsset("left");
-  const email = useThemedAsset("email");
+  const emailIcon = useThemedAsset("email");
   const phone = useThemedAsset("phone");
   const gps = useThemedAsset("gps");
   const linkedin = useThemedAsset("linkedin2");
   const instagram = useThemedAsset("instagram");
   const facebook = useThemedAsset("facebook");
   const send = useThemedAsset("send");
+
+  const [email, setEmail] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
+  const [isValidName, setIsValidName] = useState<boolean>(false);
+  const [isValidMessage, setIsValidMessage] = useState<boolean>(false);
 
   const texts = {
     es: {
@@ -33,6 +41,14 @@ function Contact() {
       portfolio: "Portfólio",
     },
   };
+
+  function handleSubmit() {
+    if (!isValidEmail || !isValidName || !isValidMessage) {
+      alert("Por favor, complete todos los campos correctamente.");
+      return;
+    }
+    alert(`Enviado correctamente: ${email} \n ${name} \n ${message}`);
+  }
 
   function handleCopy(valor: string) {
     navigator.clipboard.writeText(valor);
@@ -53,17 +69,41 @@ function Contact() {
             <p className="p-big">
               Enviame un <span>E-MAIL</span>
             </p>
-            <div className="top">
-              <input type="email" placeholder="Email" />
-              <input type="text" placeholder="Nombre" />
+            <div className="textFields">
+              <div className="top">
+                <TextField
+                  type="email"
+                  label="Dirección email"
+                  error="Ingrese un email valido"
+                  value={email}
+                  setValue={setEmail}
+                  setIsValid={setIsValidEmail}
+                />
+                <TextField
+                  type="text"
+                  label="Nombre completo"
+                  error="Ingrese un nombre"
+                  value={name}
+                  setValue={setName}
+                  setIsValid={setIsValidName}
+                />
+              </div>
+              <TextField
+                type="textarea"
+                label="Mensaje"
+                error="Ingrese algún mensaje"
+                value={message}
+                setValue={setMessage}
+                setIsValid={setIsValidMessage}
+              />
             </div>
-            <textarea placeholder="Mensaje"></textarea>
             <div className="button">
               <BtnSolid
                 icon1={send}
                 text="Enviar Mensaje"
                 icon2=""
-                onClick={() => {}}
+                onClick={handleSubmit}
+                disabled={!isValidEmail || !isValidName || !isValidMessage}
               />
             </div>
           </form>
@@ -72,7 +112,7 @@ function Contact() {
 
       <div className="container">
         <ContactCard
-          img={email}
+          img={emailIcon}
           title={"Direccion Gmail"}
           sub={"depedrojulianismael"}
           onClick={() => handleCopy("depedrojulianismael@gmail.com")}

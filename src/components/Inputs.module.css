@@ -28,6 +28,15 @@
   width: fit-content;
   transition: box-shadow 0.2s ease;
 }
+
+.containerDisabled .btn_solid {
+  cursor: default;
+  filter: grayscale(1);
+  opacity: 0.8;
+  box-shadow: none;
+  margin-top: 3px;
+}
+
 .container:hover .btn_solid {
   box-shadow: var(--shadow-tall);
 }
@@ -44,4 +53,85 @@ img {
 .btn_outlined *,
 .btn_solid * {
   text-wrap: nowrap;
+}
+
+.textField {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  height: 51px;
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+.textField label {
+  padding-left: 10px;
+  color: var(--text-primary);
+  font-size: 10px;
+}
+.textField .input {
+  border: none;
+  outline: none;
+  background-color: var(--bg-1);
+  border-bottom: 3px solid var(--bg-1);
+  border-radius: 8px 8px 0 0;
+  box-shadow: inset var(--shadow-main);
+  color: var(--text-primary);
+  padding: 10px 10px 8px;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.textField:has(textarea) {
+  height: 100%;
+}
+.textField textarea {
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  resize: none;
+  font-family: var(--font-family);
+}
+
+.textField .nonError {
+  color: var(--text-error);
+  visibility: hidden;
+}
+.textField .error {
+  color: var(--text-error);
+  visibility: visible;
+}
+
+.textField .label {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  transition: 0.15s;
+  cursor: text;
+}
+
+.textField .input:focus {
+  border-bottom: 3px solid var(--primary);
+}
+
+.textField .input:focus ~ .label {
+  top: 0px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.textField .input:not(:placeholder-shown) ~ .label {
+  top: 0px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.textField .input:focus ~ .label {
+  color: var(--primary);
 }

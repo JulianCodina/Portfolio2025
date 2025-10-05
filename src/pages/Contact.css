@@ -36,10 +36,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
   width: 60%;
   height: 100%;
   overflow: hidden;
+  padding: 0 5px 10px;
 }
 #contact .body form p span {
   color: var(--primary);
@@ -48,15 +48,24 @@
 
 #contact .body form .top {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   width: 100%;
+  padding-top: 10px;
+}
+
+#contact .body form .textFields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
 }
 
 #contact .body .button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 35px;
+  min-height: 31px;
   width: 100%;
 }
 
@@ -82,7 +91,7 @@
   #contact .body {
     flex-direction: column;
     align-items: center;
-    height: 400px;
+    height: 410px;
   }
   #contact .body .map {
     width: 80%;
