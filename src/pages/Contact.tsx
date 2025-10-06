@@ -241,7 +241,10 @@ function Contact() {
                   !isValidEmail ||
                   !isValidName ||
                   !isValidMessage ||
-                  isSubmitting
+                  isSubmitting ||
+                  name.trim() === "" ||
+                  email.trim() === "" ||
+                  message.trim() === ""
                 }
                 style={{
                   background: "none",
@@ -262,7 +265,10 @@ function Contact() {
                     !isValidEmail ||
                     !isValidName ||
                     !isValidMessage ||
-                    isSubmitting
+                    isSubmitting ||
+                    name.trim() === "" ||
+                    email.trim() === "" ||
+                    message.trim() === ""
                   }
                 />
               </button>

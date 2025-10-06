@@ -42,7 +42,7 @@ export function Snackbar({ message, type, onClose, duration }: SnackbarProps) {
   return (
     <div className={`snackbar ${type} ${isClosing ? "hide" : "show"}`}>
       <div className="snackbar-content">
-        <span>{message}</span>
+        <p>{message}</p>
       </div>
     </div>
   );
