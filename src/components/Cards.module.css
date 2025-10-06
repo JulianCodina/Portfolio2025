@@ -375,12 +375,12 @@
     height: 20px;
   }
   .PrjCard {
-    width: 140px;
+    width: 75%;
   }
   .PrjCard .header {
-    height: 80px;
+    height: 120px;
   }
   .PrjCard .texts {
-    height: 120px;
+    height: 80px;
   }
 }
