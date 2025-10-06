@@ -325,7 +325,7 @@ function Portfolio() {
               },
               {
                 action: "figma",
-                url: "https://www.figma.com/design/F9LYoJh6j0duEpGX9YnEwX/Portfolio-2025?node-id=166-856&t=QA3mRn06DVIGuHkf-1",
+                url: "https://www.figma.com/design/F9LYoJh6j0duEpGX9YnEwX/Portfolio-2025?node-id=0-1&p=f&t=LXHxC2ejwL2lc5rP-0",
                 title: "Figma",
               },
             ]}

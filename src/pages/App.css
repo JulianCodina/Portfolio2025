@@ -37,8 +37,10 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
+  top: auto;
   height: 100vh;
   height: 100svh;
+  height: 100dvh;
   object-fit: cover;
   opacity: 0.8;
   will-change: transform;
