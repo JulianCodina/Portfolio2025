@@ -39,7 +39,6 @@ import Testing from "/preview/testing.webp";
 import Design from "/preview/design.webp";
 import En from "/preview/ingles.webp";
 import Pt from "/preview/portugues.webp";
-import { control } from "leaflet";
 
 function Portfolio() {
   const { language } = useLanguage();
