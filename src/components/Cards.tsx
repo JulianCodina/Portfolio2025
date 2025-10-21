@@ -62,6 +62,7 @@ export function ExpCard({ logo, task, date, text, stack }: ExpCard) {
 }
 
 interface PrjCard {
+  key?: number;
   preview?: string;
   task: string;
   title: string;
@@ -75,6 +76,7 @@ interface PrjCard {
 }
 
 export function PrjCard({
+  key,
   preview,
   task,
   title,
@@ -83,7 +85,7 @@ export function PrjCard({
   buttons,
 }: PrjCard) {
   return (
-    <div className={style.PrjCard}>
+    <div className={style.PrjCard} key={key}>
       <div className={style.header}>
         <img src={preview} className={style.img} alt="logo" />
         <p className={style.task}>{task}</p>

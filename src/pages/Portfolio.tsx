@@ -6,11 +6,14 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
 
 // Imágenes
-import intersoft from "/preview/Intersoft.png";
-import sentirsebien from "/preview/sentirsebien.png";
+import intersoft from "/logos/Intersoft.png";
+import sentirsebienlogo from "/logos/sentirsebien.png";
+
+import sentirsebien from "/preview/sentirsebien.jpg";
 import podcast from "/preview/podcast.jpg";
 import chatbot from "/preview/chatbot.jpg";
 import portfolio from "/preview/portfolio.jpg";
+import holonet from "/preview/holonet.jpg";
 
 // Stack
 import ReactJS from "/stack/react.png";
@@ -19,6 +22,7 @@ import JavaScript from "/stack/javascript.png";
 import HTML from "/stack/html.png";
 import CSS from "/stack/css.png";
 import Figma from "/stack/figma.png";
+import Node from "/stack/node.png";
 import Python from "/stack/python.png";
 import Java from "/stack/java.png";
 import CSharp from "/stack/csharp.png";
@@ -35,6 +39,7 @@ import Testing from "/preview/testing.webp";
 import Design from "/preview/design.webp";
 import En from "/preview/ingles.webp";
 import Pt from "/preview/portugues.webp";
+import { control } from "leaflet";
 
 function Portfolio() {
   const { language } = useLanguage();
@@ -69,15 +74,15 @@ function Portfolio() {
         ],
       },
       projects: {
+        sentirsebien: {
+          title: "Sentirse Bien",
+          description:
+            "Sitio web FullStack con sistema de usuarios, registro de turnos, descarga de informes y panel de control para administrador.",
+        },
         podcast: {
           title: "Podcast Player",
           description:
             "Aplicación web con integración de API, incluye un sistema de usuarios que permite guardar los podcast favoritos.",
-          buttons: {
-            deploy: "Desplegar",
-            github: "GitHub",
-            figma: "Figma",
-          },
         },
         chatbot: {
           title: "IAzul Chatbot",
@@ -88,6 +93,11 @@ function Portfolio() {
           title: "Portafolio Web",
           description:
             "Simple web personal que cuenta con diseño completo en Figma para su desarrollo.",
+        },
+        holonet: {
+          title: "Foro Holonet",
+          description:
+            "Foro en vivo, con practica en CRUD y ApiRest para la creacion de posts y respuestas. Incluye autenticacion de usuarios.",
         },
       },
       stack: {
@@ -126,15 +136,15 @@ function Portfolio() {
         ],
       },
       projects: {
+        sentirsebien: {
+          title: "Sentirse Bien",
+          description:
+            "FullStack website with user system, appointment scheduling, report downloads, and admin dashboard.",
+        },
         podcast: {
           title: "Podcast Player",
           description:
             "Web application with API integration, includes a user system that allows saving favorite podcasts.",
-          buttons: {
-            deploy: "Deploy",
-            github: "GitHub",
-            figma: "Figma",
-          },
         },
         chatbot: {
           title: "IAzul Chatbot",
@@ -145,6 +155,11 @@ function Portfolio() {
           title: "Web Portfolio",
           description:
             "Simple personal website with complete Figma design for development.",
+        },
+        holonet: {
+          title: "Holonet Forum",
+          description:
+            "Live forum with CRUD and REST API practice for creating posts and replies. Includes user authentication.",
         },
       },
       stack: {
@@ -183,15 +198,15 @@ function Portfolio() {
         ],
       },
       projects: {
+        sentirsebien: {
+          title: "Sentirse Bien",
+          description:
+            "Site FullStack com sistema de usuários, agendamento de consultas, download de relatórios e painel de controle.",
+        },
         podcast: {
           title: "Reprodutor de Podcast",
           description:
             "Aplicativo web con integración de API, incluye un sistema de usuarios que permite guardar podcasts favoritos.",
-          buttons: {
-            deploy: "Implantar",
-            github: "GitHub",
-            figma: "Figma",
-          },
         },
         chatbot: {
           title: "Chatbot IAzul",
@@ -202,6 +217,11 @@ function Portfolio() {
           title: "Portfólio Web",
           description:
             "Site pessoal simples com design completo no Figma para desenvolvimento.",
+        },
+        holonet: {
+          title: "Fórum Holonet",
+          description:
+            "Fórum ao vivo, com prática em CRUD e API REST para criação de posts e respostas. Inclui autenticação de usuários.",
         },
       },
       stack: {
@@ -246,7 +266,7 @@ function Portfolio() {
             </div>
             <div className="card">
               <ExpCard
-                logo={sentirsebien}
+                logo={sentirsebienlogo}
                 task={texts[language].exp2.title}
                 date={texts[language].exp2.date}
                 text={texts[language].exp2.points}
@@ -268,6 +288,39 @@ function Portfolio() {
         <h2>{texts[language].prjTitle}</h2>
         <div className="container">
           <PrjCard
+            key={1}
+            preview={sentirsebien}
+            task={"Frontend"}
+            title={texts[language].projects.sentirsebien.title}
+            text={texts[language].projects.sentirsebien.description}
+            buttons={[
+              {
+                action: "deploy",
+                url: "https://spa-sentirse-bien.netlify.app/",
+                title: "Deploy",
+              },
+              {
+                action: "git",
+                url: "https://github.com/JulianCodina/Spa_Sentirse_Bien",
+                title: "Github",
+              },
+              {
+                action: "figma",
+                url: "https://www.figma.com/design/TBnJMtfX2azJOXicUIIyHp/Figma-basics?node-id=1669-162202&t=QmIO3I8zHVoQEGa4-1",
+                title: "Figma",
+              },
+            ]}
+            stack={[
+              "NodeJS",
+              "MongoDB",
+              "ReactJS",
+              "TypeScript",
+              "CSS3",
+              "Figma",
+            ]}
+          />
+          <PrjCard
+            key={2}
             preview={podcast}
             task={"Frontend"}
             title={texts[language].projects.podcast.title}
@@ -276,12 +329,12 @@ function Portfolio() {
               {
                 action: "deploy",
                 url: "https://podcastplayer.vercel.app/",
-                title: texts[language].projects.podcast.buttons.deploy,
+                title: "Deploy",
               },
               {
                 action: "git",
                 url: "https://github.com/JulianCodina/PodcastPlayer",
-                title: texts[language].projects.podcast.buttons.github,
+                title: "Github",
               },
             ]}
             stack={["ReactJS", "Figma", "TypeScript", "CSS"]}
@@ -313,6 +366,7 @@ function Portfolio() {
             ]}
           />
           <PrjCard
+            key={4}
             preview={portfolio}
             task={"Frontend"}
             title={texts[language].projects.portfolio.title}
@@ -330,6 +384,28 @@ function Portfolio() {
               },
             ]}
             stack={["ReactJS", "Figma", "TypeScript", "CSS"]}
+          />
+          <PrjCard
+            key={5}
+            preview={holonet}
+            task={"Full Stack"}
+            title={texts[language].projects.holonet.title}
+            text={texts[language].projects.holonet.description}
+            buttons={[
+              {
+                action: "git",
+                url: "https://github.com/JulianCodina/NodeJS-practice",
+                title: "Github",
+              },
+            ]}
+            stack={[
+              "NodeJS",
+              "SQLite",
+              "ApiREST",
+              "ReactJS",
+              "JavaScript",
+              "CSS",
+            ]}
           />
         </div>
       </div>
@@ -375,6 +451,11 @@ function Portfolio() {
           <Stack
             title={texts[language].stack.backend}
             content={[
+              {
+                title: "NodeJS",
+                sub: texts[language].stack.levels.intermediate,
+                img: Node,
+              },
               {
                 title: "Python",
                 sub: texts[language].stack.levels.intermediate,

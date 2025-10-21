@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@icons-pack/react-simple-icons": "^13.8.0",
-    "@react-google-maps/api": "^2.20.7",
     "emailjs-com": "^3.2.0",
     "leaflet": "^1.9.4",
     "react": "^19.1.1",

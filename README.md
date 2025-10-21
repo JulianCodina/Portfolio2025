@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# Mi Portafolio Personal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenido a mi portafolio personal! Este proyecto muestra mis habilidades, proyectos y experiencia como desarrollador.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Diseño Moderno y Responsivo** - Se adapta perfectamente a cualquier dispositivo
+- **Rendimiento Optimizado** - Carga rápida gracias a Vite y React
+- **Tipado Estático** - Desarrollado con TypeScript para mayor robustez
+- **Modo Oscuro** - Soporte para tema claro/oscuro
+- **Secciones**
+  - Sobre Mí
+  - Portafolio
+  - Contacto
 
-## React Compiler
+## 🛠️ Tecnologías Utilizadas
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **Frontend:**
+  - React 19 con Hooks
+  - TypeScript 5.8
+  - Vite como bundler
+  - CSS Modules para estilos
+  - EmailJS para formularios de contacto
+  - React Leaflet con Leaflet para mapas interactivos
 
-## Expanding the ESLint configuration
+## 🚀 Cómo Ejecutar el Proyecto Localmente
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clona el repositorio:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+   ```bash
+   git clone [URL_DEL_REPOSITORIO]
+   cd Portfolio2025
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. Instala las dependencias:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+   ```bash
+   npm install
+   # o
+   yarn
+   ```
+
+3. Inicia el servidor de desarrollo:
+
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
+
+4. Abre tu navegador en:
+   ```
+   http://localhost:5173
+   ```
+
+## 📦 Construir para Producción
+
+```bash
+npm run build
+# o
+yarn build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌟 Características Técnicas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Bundler:** Vite para un desarrollo rápido y eficiente
+- **Lenguaje:** TypeScript para un código más seguro y mantenible
+- **Interfaz de Usuario:** React 19 con componentes funcionales
+- **Estilos:** CSS modular para un diseño personalizado
+- **Gestión de Estado:** Context API para el manejo de estado global
+- **Internacionalización:** Soporte para múltiples idiomas
+- **Diseño Responsive:** Adaptable a diferentes tamaños de pantalla
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📫 Contacto
+
+- LinkedIn: [Julián Codina](https://www.linkedin.com/in/julián-codina/)
+- Email: depedrojulianismael@gmail.com
+- GitHub: [JulianCodina](https://github.com/JulianCodina)
+- Teléfono: +54 3624 249451
+- Ubicación: Resistencia, Chaco, Argentina
+
+---
+
+Hecho con ❤️ por Julián Codina - ¡Gracias por visitar!
