@@ -14,6 +14,7 @@ import podcast from "/preview/podcast.jpg";
 import chatbot from "/preview/chatbot.jpg";
 import portfolio from "/preview/portfolio.jpg";
 import holonet from "/preview/holonet.jpg";
+import abandonados from "/preview/abandonados.jpg";
 
 // Stack
 import ReactJS from "/stack/react.png";
@@ -57,7 +58,8 @@ function Portfolio() {
         title: "Full Stack",
         date: "Febrero 2025 - Septiembre 2025",
         points: [
-          "Desarrollo Full Stack de una aplicación web, desde el diseño de la arquitectura de la base de datos hasta la implementación del frontend.",
+          "Participacion en desarrollo de aplicaciones webs y atencion al cliente.",
+          "Desarrollo Full Stack de un chatbot, desde el diseño de la arquitectura de la base de datos hasta la implementación del frontend.",
           "Optimización de la infraestructura backend, asegurando escalabilidad y control de datos.",
           "Creación y documentación de librerías de componentes reutilizables para futuros proyectos.",
         ],
@@ -66,10 +68,10 @@ function Portfolio() {
         title: "Frontend",
         date: "Agosto 2024 - Enero 2025",
         points: [
-          "Especializado en el Frontend, encargado de la construcción de la interfaz de usuario y la lógica de negocio en el lado del cliente.",
+          "Enfocado al Frontend, encargado de la interfaz de usuario y la lógica de negocio en el lado del cliente.",
           "Diseño y construcción del panel de administración (CMS).",
           "Uso de TypeScript para la creación de componentes robustos y escalables en ReactJS.",
-          "Apoyo a un nuevo integrante del equipo, guiándolo en el proceso de integración y en la comprensión del código.",
+          "Integración y guía en la comprensión del código para un nuevo integrante del equipo durante un onboarding.",
         ],
       },
       projects: {
@@ -98,6 +100,11 @@ function Portfolio() {
           description:
             "Foro en vivo, con practica en CRUD y ApiRest para la creacion de posts y respuestas. Incluye autenticacion de usuarios.",
         },
+        abandonados: {
+          title: "Trailer Cortometraje",
+          description:
+            "Landing page, cuenta con diseño responsive, animaciones, modales, reproduccion de videos y audios, y fuentes locales.",
+        },
       },
       stack: {
         frontend: "Frontend",
@@ -119,7 +126,8 @@ function Portfolio() {
         title: "Full Stack",
         date: "February 2025 - September 2025",
         points: [
-          "Full Stack development of a web application, from database architecture design to frontend implementation.",
+          "Participation in web application development and customer service.",
+          "Full Stack development of a chatbot, from database architecture design to frontend implementation.",
           "Backend infrastructure optimization, ensuring scalability and data control.",
           "Creation and documentation of reusable component libraries for future projects.",
         ],
@@ -128,10 +136,10 @@ function Portfolio() {
         title: "Frontend",
         date: "August 2024 - January 2025",
         points: [
-          "Specialized in Frontend, responsible for building user interfaces and client-side business logic.",
+          "Focused on Frontend, responsible for user interface and client-side business logic.",
           "Design and construction of the administration panel (CMS).",
           "Use of TypeScript for creating robust and scalable components in ReactJS.",
-          "Support for a new team member, guiding them through the integration process and code understanding.",
+          "Integration and guidance in code understanding for a new team member during onboarding.",
         ],
       },
       projects: {
@@ -160,6 +168,11 @@ function Portfolio() {
           description:
             "Live forum with CRUD and REST API practice for creating posts and replies. Includes user authentication.",
         },
+        abandonados: {
+          title: "Short Film Trailer",
+          description:
+            "Landing page featuring responsive design, animations, modals, video and audio playback, and local fonts.",
+        },
       },
       stack: {
         frontend: "Frontend",
@@ -181,7 +194,8 @@ function Portfolio() {
         title: "Full Stack",
         date: "Fevereiro 2025 - Setembro 2025",
         points: [
-          "Desenvolvimento Full Stack de uma aplicação web, desde o design da arquitetura do banco de dados até a implementação do frontend.",
+          "Participação no desenvolvimento de aplicações web e atendimento ao cliente.",
+          "Desenvolvimento Full Stack de um chatbot, desde o design da arquitetura do banco de dados até a implementação do frontend.",
           "Otimização da infraestrutura de backend, garantindo escalabilidade e controle de dados.",
           "Criação e documentação de bibliotecas de componentes reutilizáveis para projetos futuros.",
         ],
@@ -190,10 +204,10 @@ function Portfolio() {
         title: "Frontend",
         date: "Agosto 2024 - Janeiro 2025",
         points: [
-          "Especializado em Frontend, responsável pela construção da interface do usuário e lógica de negócios no lado do cliente.",
+          "Focado no Frontend, responsável pela interface do usuário e lógica de negócios no lado do cliente.",
           "Design e construção do painel de administração (CMS).",
-          "Uso de TypeScript para criar componentes robustos e escaláveis en ReactJS.",
-          "Apoyo a un nuevo integrante del equipo, guiándolo en el proceso de integración y en la comprensión del código.",
+          "Uso de TypeScript para criar componentes robustos e escaláveis em ReactJS.",
+          "Integração e orientação na compreensão do código para um novo membro da equipe durante o onboarding.",
         ],
       },
       projects: {
@@ -221,6 +235,11 @@ function Portfolio() {
           title: "Fórum Holonet",
           description:
             "Fórum ao vivo, com prática em CRUD e API REST para criação de posts e respostas. Inclui autenticação de usuários.",
+        },
+        abandonados: {
+          title: "Curta-metragem Trailer",
+          description:
+            "Landing page com design responsivo, animações, modales, reprodução de vídeos e áudios, e fontes locais.",
         },
       },
       stack: {
@@ -405,6 +424,31 @@ function Portfolio() {
               "JavaScript",
               "CSS",
             ]}
+          />
+          <PrjCard
+            key={6}
+            preview={abandonados}
+            task={"Frontend"}
+            title={texts[language].projects.abandonados.title}
+            text={texts[language].projects.abandonados.description}
+            buttons={[
+              {
+                action: "deploy",
+                url: "https://abandonados.vercel.app/",
+                title: "Deploy",
+              },
+              {
+                action: "git",
+                url: "https://github.com/JulianCodina/Abandonados/tree/main",
+                title: "Github",
+              },
+              {
+                action: "figma",
+                url: "https://www.figma.com/design/3DASZ1xAVuzGJAaOO7N8vA/Abandonados-Page?node-id=0-1&t=l2XW7Cipntdk6Dht-1",
+                title: "Figma",
+              },
+            ]}
+            stack={["HTML", "CSS", "JavaScript"]}
           />
         </div>
       </div>
