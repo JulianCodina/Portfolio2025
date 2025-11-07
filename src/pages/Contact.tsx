@@ -59,11 +59,8 @@ function Contact() {
         "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
       copied: "Copiado al portapapeles",
       gmailTitle: "Direccion Gmail",
-      gmailSub: "depedrojulianismael",
       phoneTitle: "Teléfono",
-      phoneSub: "+54 3624 249451",
       locationTitle: "Localidad",
-      locationSub: "Resistencia, Chaco",
     },
     en: {
       title: "Contact",
@@ -83,11 +80,8 @@ function Contact() {
       sendError: "Error sending the message. Please try again later.",
       copied: "Copied to clipboard",
       gmailTitle: "Gmail Address",
-      gmailSub: "depedrojulianismael",
       phoneTitle: "Phone",
-      phoneSub: "+54 3624 249451",
       locationTitle: "Location",
-      locationSub: "Resistencia, Chaco",
     },
     pt: {
       title: "Contato",
@@ -108,11 +102,8 @@ function Contact() {
         "Erro ao enviar a mensagem. Por favor, tente novamente mais tarde.",
       copied: "Copiado para a área de transferência",
       gmailTitle: "Endereço Gmail",
-      gmailSub: "depedrojulianismael",
       phoneTitle: "Telefone",
-      phoneSub: "+54 3624 249451",
       locationTitle: "Localidade",
-      locationSub: "Resistencia, Chaco",
     },
   };
 
@@ -281,19 +272,19 @@ function Contact() {
         <ContactCard
           img={emailIcon}
           title={texts[language].gmailTitle}
-          sub={texts[language].gmailSub}
+          sub="depedrojulianismael"
           onClick={() => handleCopy("depedrojulianismael@gmail.com")}
         />
         <ContactCard
           img={phone}
           title={texts[language].phoneTitle}
-          sub={texts[language].phoneSub}
+          sub="+54 3624 249451"
           onClick={() => handleCopy("+54 3624 249451")}
         />
         <ContactCard
           img={gps}
           title={texts[language].locationTitle}
-          sub={texts[language].locationSub}
+          sub="Resistencia, Chaco"
           onClick={() =>
             window.open("https://maps.app.goo.gl/n7DKDjbCHE68Hcvs7", "_blank")
           }
@@ -301,6 +292,7 @@ function Contact() {
         <ContactCard
           img={linkedin}
           title={"Linkedin"}
+          sub="in/julián-codina"
           onClick={() =>
             window.open("https://www.linkedin.com/in/julián-codina/", "_blank")
           }
@@ -308,6 +300,7 @@ function Contact() {
         <ContactCard
           img={instagram}
           title={"Instagram"}
+          sub="@juliancodina"
           onClick={() =>
             window.open("https://www.instagram.com/juliancodina/", "_blank")
           }
@@ -315,6 +308,7 @@ function Contact() {
         <ContactCard
           img={facebook}
           title={"Facebook"}
+          sub="@juliancodina"
           onClick={() =>
             window.open(
               "https://www.facebook.com/julianismael.codinadepedro",

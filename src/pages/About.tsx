@@ -9,13 +9,14 @@ import photo from "/ui/photo.png";
 import pixar from "/ui/pixar.png";
 
 const curriculum_vitae_es =
-  "https://drive.google.com/file/d/1fmL_yLQiS_hc3yKvczCJyfnfUN_nfn7a/view";
+  "https://drive.google.com/file/d/1-3z0cEenrhA6vQaibOtBQXD57bRWw6fi/view?usp=sharing";
 const curriculum_vitae_en =
-  "https://drive.google.com/file/d/1OJwFm0ErmnBv8dXxS04G7raK9q4d43-h/view";
+  "https://drive.google.com/file/d/13NgFvWdm0dDVM_Zw1-mNyYNGN9kdjF7b/view?usp=sharing";
 
 function About() {
   const { language } = useLanguage();
   const { setTab } = useTab();
+
   //Iconos
   const cv = useThemedAsset("cv");
   const linkedin = useThemedAsset("linkedin");
