@@ -15,6 +15,7 @@ import chatbot from "/preview/chatbot.jpg";
 import portfolio from "/preview/portfolio.jpg";
 import holonet from "/preview/holonet.jpg";
 import abandonados from "/preview/abandonados.jpg";
+import wishWallet from "/preview/wishwallet.png";
 
 // Stack
 import ReactJS from "/stack/react.png";
@@ -36,6 +37,7 @@ import MongoDB from "/stack/mongodb.png";
 import devweb from "/preview/devweb.webp";
 import MasterCSS from "/preview/mastercss.webp";
 import ReactCert from "/preview/react.webp";
+import ReactNativeCert from "/preview/reactnative.webp";
 import PythonCert from "/preview/python.webp";
 import Testing from "/preview/testing.webp";
 import Design from "/preview/design.webp";
@@ -106,6 +108,11 @@ function Portfolio() {
           description:
             "Landing page, cuenta con diseño responsive, animaciones, modales, reproduccion de videos y audios, y fuentes locales.",
         },
+        wishWallet: {
+          title: "Wish Wallet",
+          description:
+            "Billetera virtual ficticia con manejo en AsyncStorage, Navigation y Notificaciones Push.",
+        },
       },
       stack: {
         frontend: "Frontend",
@@ -169,6 +176,11 @@ function Portfolio() {
           description:
             "Landing page featuring responsive design, animations, modals, video and audio playback, and local fonts.",
         },
+        wishWallet: {
+          title: "Wish Wallet",
+          description:
+            "Fictional virtual wallet with AsyncStorage, Navigation, and Push Notifications.",
+        },
       },
       stack: {
         frontend: "Frontend",
@@ -231,6 +243,11 @@ function Portfolio() {
           title: "Curta-metragem Trailer",
           description:
             "Landing page com design responsivo, animações, modales, reprodução de vídeos e áudios, e fontes locais.",
+        },
+        wishWallet: {
+          title: "Wish Wallet",
+          description:
+            "Carteira virtual fictícia com gerenciamento de AsyncStorage, Navigation e Notificações Push.",
         },
       },
       stack: {
@@ -436,6 +453,26 @@ function Portfolio() {
             ]}
             stack={["HTML", "CSS", "JavaScript"]}
           />
+          <PrjCard
+            key={7}
+            preview={wishWallet}
+            task={"Frontend"}
+            title={texts[language].projects.wishWallet.title}
+            text={texts[language].projects.wishWallet.description}
+            buttons={[
+              {
+                action: "git",
+                url: "https://github.com/JulianCodina/WishWallet",
+                title: "Github",
+              },
+            ]}
+            stack={[
+              "React Native",
+              "ReactJS",
+              "React Navigation",
+              "JavaScript",
+            ]}
+          />
         </div>
       </div>
 
@@ -545,6 +582,12 @@ function Portfolio() {
                 sub: "Informatorio",
                 img: ReactCert,
                 url: "https://drive.google.com/file/d/1jhuK_Q6_wz_Be6utzeHbeFbKcLX6A-1t/view",
+              },
+              {
+                title: "React Native",
+                sub: "Udemy",
+                img: ReactNativeCert,
+                url: "https://drive.google.com/file/d/1TePnrQdOfcmM9UkyClEBfJ21GojRErFT/view?usp=sharing",
               },
               {
                 title: "Diseño UI",
