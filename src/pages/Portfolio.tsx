@@ -18,6 +18,7 @@ import abandonados from "/preview/abandonados.jpg";
 
 // Stack
 import ReactJS from "/stack/react.png";
+import ReactNative from "/stack/reactnative.png";
 import TypeScript from "/stack/typescript.png";
 import JavaScript from "/stack/javascript.png";
 import HTML from "/stack/html.png";
@@ -109,11 +110,6 @@ function Portfolio() {
       stack: {
         frontend: "Frontend",
         backend: "Backend",
-        levels: {
-          basic: "básico",
-          intermediate: "intermedio",
-          advanced: "avanzado",
-        },
       },
     },
     en: {
@@ -177,11 +173,6 @@ function Portfolio() {
       stack: {
         frontend: "Frontend",
         backend: "Backend",
-        levels: {
-          basic: "basic",
-          intermediate: "intermediate",
-          advanced: "advanced",
-        },
       },
     },
     pt: {
@@ -245,11 +236,6 @@ function Portfolio() {
       stack: {
         frontend: "Frontend",
         backend: "Backend",
-        levels: {
-          basic: "básico",
-          intermediate: "intermediário",
-          advanced: "avançado",
-        },
       },
     },
   };
@@ -461,32 +447,30 @@ function Portfolio() {
             content={[
               {
                 title: "ReactJS",
-                sub: texts[language].stack.levels.intermediate,
                 img: ReactJS,
               },
               {
+                title: "R. Native",
+                img: ReactNative,
+              },
+              {
                 title: "TypeScript",
-                sub: texts[language].stack.levels.intermediate,
                 img: TypeScript,
               },
               {
                 title: "JavaScript",
-                sub: texts[language].stack.levels.intermediate,
                 img: JavaScript,
               },
               {
                 title: "HTML",
-                sub: texts[language].stack.levels.advanced,
                 img: HTML,
               },
               {
                 title: "CSS",
-                sub: texts[language].stack.levels.advanced,
                 img: CSS,
               },
               {
                 title: "Figma",
-                sub: texts[language].stack.levels.intermediate,
                 img: Figma,
               },
             ]}
@@ -496,37 +480,30 @@ function Portfolio() {
             content={[
               {
                 title: "NodeJS",
-                sub: texts[language].stack.levels.intermediate,
                 img: Node,
               },
               {
                 title: "Python",
-                sub: texts[language].stack.levels.intermediate,
                 img: Python,
               },
               {
                 title: "Java",
-                sub: texts[language].stack.levels.intermediate,
                 img: Java,
               },
               {
                 title: "C#",
-                sub: texts[language].stack.levels.basic,
                 img: CSharp,
               },
               {
                 title: "MySQL",
-                sub: texts[language].stack.levels.intermediate,
                 img: MySQL,
               },
               {
                 title: "Supabase",
-                sub: texts[language].stack.levels.intermediate,
                 img: SupaBase,
               },
               {
                 title: "MongoDB",
-                sub: texts[language].stack.levels.basic,
                 img: MongoDB,
               },
             ]}

@@ -9,9 +9,10 @@ import photo from "/ui/photo.png";
 import pixar from "/ui/pixar.png";
 
 const curriculum_vitae_es =
-  "https://drive.google.com/file/d/1-3z0cEenrhA6vQaibOtBQXD57bRWw6fi/view?usp=sharing";
+  "https://drive.google.com/file/d/1PBGUqMFlaunYari0lA-03ofDPhtUt873/view?usp=sharing";
 const curriculum_vitae_en =
   "https://drive.google.com/file/d/13NgFvWdm0dDVM_Zw1-mNyYNGN9kdjF7b/view?usp=sharing";
+// desactualziado el ingles
 
 function About() {
   const { language } = useLanguage();

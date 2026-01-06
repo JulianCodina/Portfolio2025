@@ -120,7 +120,7 @@ interface StackProps {
   content: {
     img?: string;
     title: string;
-    sub: string;
+    sub?: string;
   }[];
 }
 
@@ -134,7 +134,7 @@ export function Stack({ title, content }: StackProps) {
             <img src={item.img} className={style.img} alt={item.title} />
             <div className="texts">
               <p className={style.title}>{item.title}</p>
-              <p className="p-small">{item.sub}</p>
+              {item.sub && <p className="p-small">{item.sub}</p>}
             </div>
           </div>
         ))}
