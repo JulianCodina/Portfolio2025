@@ -12,7 +12,6 @@ const curriculum_vitae_es =
   "https://drive.google.com/file/d/1j8rnaCigk09yf7yhw3TlYfUowYedI7rS/view?usp=sharing";
 const curriculum_vitae_en =
   "https://drive.google.com/file/d/10xwjyUpZc_SCoiYxterlW5hP7LUhmxsq/view?usp=sharing";
-// desactualziado el ingles
 
 function About() {
   const { language } = useLanguage();
