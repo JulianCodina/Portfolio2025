@@ -1,32 +1,34 @@
 import "./About.css";
 import { BtnOutlined } from "../components/Inputs";
-import { useThemedAsset } from "../theme";
 import { AboutCard } from "../components/Cards";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
+import {
+  FiFileText,
+  FiLayout,
+  FiGlobe,
+  FiDatabase,
+  FiArrowRight,
+} from "react-icons/fi";
+import { FaLinkedin, FaGithub } from "react-icons/fa6";
+
 // Imágenes
 import photo from "/ui/photo.png";
 import pixar from "/ui/pixar.png";
 
 const curriculum_vitae_es =
-  "https://drive.google.com/file/d/1j8rnaCigk09yf7yhw3TlYfUowYedI7rS/view?usp=sharing";
+  "https://drive.google.com/file/d/1iAh-8IIEmsI4cwvmdCrhp0a1vkzefBUI/view?usp=sharing";
 const curriculum_vitae_en =
-  "https://drive.google.com/file/d/10xwjyUpZc_SCoiYxterlW5hP7LUhmxsq/view?usp=sharing";
+  "https://drive.google.com/file/d/1iAh-8IIEmsI4cwvmdCrhp0a1vkzefBUI/view?usp=sharing";
+// antes habia varias verciones, ahora es solo una en ingles
 
 function About() {
   const { language } = useLanguage();
   const { setTab } = useTab();
 
-  //Iconos
-  const cv = useThemedAsset("cv");
-  const linkedin = useThemedAsset("linkedin");
-  const github = useThemedAsset("github");
-  const design = useThemedAsset("design");
-  const web = useThemedAsset("web");
-  const db = useThemedAsset("db");
-  const right = useThemedAsset("right");
-
-  const texts = {    es: {      title: "Sobre Mí",
+  const texts = {
+    es: {
+      title: "Sobre Mí",
       text: [
         "Soy Técnico en Programación (UTN) y Desarrollador Full Stack con foco en React, Next.js, TypeScript y Python. Cuento con más de 2 años de experiencia construyendo aplicaciones web intuitivas, escalables y orientadas al usuario.",
         "Actualmente lidero el frontend de PartiDale, una plataforma SaaS para la gestión de complejos deportivos. Me motiva escribir código limpio, aprender continuamente y crear soluciones con impacto real para el usuario.",
@@ -111,7 +113,7 @@ function About() {
   }
 
   function handleLinkedin() {
-    window.open("https://www.linkedin.com/in/julián-codina/", "_blank");
+    window.open("https://www.linkedin.com/in/julian-codina/", "_blank");
   }
 
   function handleGithub() {
@@ -130,21 +132,18 @@ function About() {
         </div>
         <div className="inline">
           <BtnOutlined
-            icon1={cv}
+            icon1={<FiFileText size={16} />}
             text={texts[language].viewCV}
-            icon2=""
             onClick={handleCV}
           />
           <BtnOutlined
-            icon1={linkedin}
+            icon1={<FaLinkedin size={16} />}
             text="Linkedin"
-            icon2=""
             onClick={handleLinkedin}
           />
           <BtnOutlined
-            icon1={github}
+            icon1={<FaGithub size={16} />}
             text="GitHub"
-            icon2=""
             onClick={handleGithub}
           />
         </div>
@@ -168,7 +167,7 @@ function About() {
         <div className="flip-card">
           <div className="flip-card-inner">
             <div className="front">
-              <img src={pixar} alt="Pixar" />
+              <img src={pixar} alt="Pixar Avatar" />
             </div>
             <div className="back">
               <img src={photo} alt="Photo" />
@@ -181,17 +180,17 @@ function About() {
         <h2>{texts[language].whatIDo}</h2>
         <div className="CardContainer">
           <AboutCard
-            icon={design}
+            icon={<FiLayout size={24} />}
             title={texts[language].uiDesign.title}
             text={texts[language].uiDesign.text}
           />
           <AboutCard
-            icon={web}
+            icon={<FiGlobe size={24} />}
             title={texts[language].webDev.title}
             text={texts[language].webDev.text}
           />
           <AboutCard
-            icon={db}
+            icon={<FiDatabase size={24} />}
             title={texts[language].database.title}
             text={texts[language].database.text}
           />
@@ -199,9 +198,8 @@ function About() {
       </div>
       <div className="footer">
         <BtnOutlined
-          icon1=""
           text={texts[language].portfolio}
-          icon2={right}
+          icon2={<FiArrowRight size={16} />}
           onClick={() => setTab("portfolio")}
         />
       </div>
