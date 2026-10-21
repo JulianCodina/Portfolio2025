@@ -314,6 +314,89 @@
   box-shadow: var(--shadow-tall);
 }
 
+.Carrousel .item .placeholderInProgress {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: var(--shadow-main);
+  width: 90px;
+  height: 60px;
+  border-radius: 4px;
+  background-color: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: top 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+  animation: skeletonPulse 3s ease-in-out infinite;
+}
+
+.Carrousel .item:hover .placeholderInProgress {
+  top: 0px;
+  box-shadow: var(--shadow-tall);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.Carrousel .item .placeholderText {
+  color: #a1a1aa;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.Carrousel .item:hover .placeholderText {
+  color: #ffffff;
+}
+
+@keyframes skeletonPulse {
+  0%, 100% {
+    background-color: #141416;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  50% {
+    background-color: #222225;
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Sutil y armónico para tema oscuro */
+:global([data-theme="dark"]) .Carrousel .item .placeholderInProgress {
+  background-color: #262629;
+  border-color: rgba(255, 255, 255, 0.05);
+  animation-name: skeletonPulseDark;
+}
+
+:global([data-theme="dark"]) .Carrousel .item:hover .placeholderInProgress {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+:global([data-theme="dark"]) .Carrousel .item .placeholderText {
+  color: #7e828a;
+}
+
+:global([data-theme="dark"]) .Carrousel .item:hover .placeholderText {
+  color: #d1d5db;
+}
+
+@keyframes skeletonPulseDark {
+  0%, 100% {
+    background-color: #242427;
+    border-color: rgba(255, 255, 255, 0.04);
+  }
+  50% {
+    background-color: #2d2d31;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
 .Contact {
   position: relative;
   display: flex;

@@ -6,6 +6,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
 
 // Imágenes
+import partidaleLogo from "/logos/partidale.png";
 import intersoft from "/logos/Intersoft.png";
 import sentirsebienlogo from "/logos/sentirsebien.png";
 
@@ -27,7 +28,6 @@ import CSS from "/stack/css.png";
 import Figma from "/stack/figma.png";
 import Node from "/stack/node.png";
 import Python from "/stack/python.png";
-import Java from "/stack/java.png";
 import CSharp from "/stack/csharp.png";
 import MySQL from "/stack/mysql.png";
 import SupaBase from "/stack/supabase.png";
@@ -57,6 +57,16 @@ function Portfolio() {
       stackTitle: "Especialidades",
       certTitle: "Certificados",
       contact: "Contacto",
+      expPartidale: {
+        title: "Founder & Frontend Developer",
+        date: "Febrero 2026 - Presente",
+        points: [
+          "Diseño y desarrollo de plataforma web para reserva de canchas deportivas e información de clubes con Next.js, React.js y TypeScript.",
+          "Integración frontend con backend en FastAPI y Supabase desarrollado por equipo multidisciplinario.",
+          "Coordinación del flujo de trabajo en GitHub aplicando metodologías ágiles.",
+          "Liderazgo en adquisición de clientes, ventas y soporte técnico para clubes deportivos locales.",
+        ],
+      },
       exp1: {
         title: "Full Stack",
         date: "Febrero 2025 - Septiembre 2025",
@@ -125,6 +135,16 @@ function Portfolio() {
       stackTitle: "Specialties",
       certTitle: "Certificates",
       contact: "Contact",
+      expPartidale: {
+        title: "Founder & Frontend Developer",
+        date: "February 2026 - Present",
+        points: [
+          "Designed and developed a web platform for sports-club court reservations and club information, built with Next.js, React.js and TypeScript.",
+          "Integrated the frontend with a FastAPI and Supabase backend developed by a separate team.",
+          "Coordinated the development workflow with the team on GitHub using Agile methodologies.",
+          "Led customer acquisition, sales and ongoing technical support for local sports clubs.",
+        ],
+      },
       exp1: {
         title: "Full Stack",
         date: "February 2025 - September 2025",
@@ -193,6 +213,16 @@ function Portfolio() {
       stackTitle: "Especialidades",
       certTitle: "Certificados",
       contact: "Contacto",
+      expPartidale: {
+        title: "Founder & Frontend Developer",
+        date: "Fevereiro 2026 - Presente",
+        points: [
+          "Design e desenvolvimento de plataforma web para reserva de quadras e informações de clubes esportivos com Next.js, React.js e TypeScript.",
+          "Integração do frontend com backend em FastAPI e Supabase desenvolvido por equipe multidisciplinar.",
+          "Coordenação do fluxo de trabalho no GitHub utilizando metodologias ágeis.",
+          "Liderança na captação de clientes, vendas e suporte técnico contínuo para clubes esportivos locais.",
+        ],
+      },
       exp1: {
         title: "Full Stack",
         date: "Fevereiro 2025 - Setembro 2025",
@@ -264,6 +294,23 @@ function Portfolio() {
         <div className="body">
           <div className="line" />
           <div className="container">
+            <div className="card">
+              <ExpCard
+                logo={partidaleLogo}
+                task={texts[language].expPartidale.title}
+                date={texts[language].expPartidale.date}
+                text={texts[language].expPartidale.points}
+                stack={[
+                  "Next.js",
+                  "ReactJS",
+                  "TypeScript",
+                  "FastAPI",
+                  "Supabase",
+                  "GitHub",
+                  "Agile",
+                ]}
+              />
+            </div>
             <div className="card">
               <ExpCard
                 logo={intersoft}
@@ -524,11 +571,7 @@ function Portfolio() {
                 img: Python,
               },
               {
-                title: "Java",
-                img: Java,
-              },
-              {
-                title: "C#",
+                title: "C# .NET",
                 img: CSharp,
               },
               {
@@ -554,16 +597,22 @@ function Portfolio() {
           <Certificate
             content={[
               {
-                title: "Desarrollo Web",
-                sub: "Udemy",
-                img: devweb,
-                url: "https://drive.google.com/file/d/16AzArzSVf9IBfoqJP47G9S2PZGQP3P1o/view",
+                title: "ReactJS",
+                sub: "Informatorio",
+                img: ReactCert,
+                url: "https://drive.google.com/file/d/1jhuK_Q6_wz_Be6utzeHbeFbKcLX6A-1t/view",
               },
               {
-                title: "Master en CSS",
+                title: ".NET Developer",
+                sub: "Telecom",
+                inProgress: true,
+                url: "#",
+              },
+              {
+                title: "React Native",
                 sub: "Udemy",
-                img: MasterCSS,
-                url: "https://drive.google.com/file/d/1D4qG1-yuACSaGrNd5RKZ8b15pcnrIog-/view",
+                img: ReactNativeCert,
+                url: "https://drive.google.com/file/d/1TePnrQdOfcmM9UkyClEBfJ21GojRErFT/view?usp=sharing",
               },
               {
                 title: "Python",
@@ -578,16 +627,10 @@ function Portfolio() {
                 url: "https://drive.google.com/file/d/1RSFrS9gLhbfIKQSWAWLEpK87XV0h0sPM/view",
               },
               {
-                title: "ReactJS",
-                sub: "Informatorio",
-                img: ReactCert,
-                url: "https://drive.google.com/file/d/1jhuK_Q6_wz_Be6utzeHbeFbKcLX6A-1t/view",
-              },
-              {
-                title: "React Native",
-                sub: "Udemy",
-                img: ReactNativeCert,
-                url: "https://drive.google.com/file/d/1TePnrQdOfcmM9UkyClEBfJ21GojRErFT/view?usp=sharing",
+                title: "Ingles",
+                sub: "UNNE",
+                img: En,
+                url: "https://drive.google.com/file/d/1KFudHRqzy0tR3lDOjKhrtGqcb9ZO5lYp/view",
               },
               {
                 title: "Diseño UI",
@@ -596,10 +639,22 @@ function Portfolio() {
                 url: "https://drive.google.com/file/d/19bmcisFd9p97JRO2Zv5NwWCjvZ70t5_Q/view",
               },
               {
-                title: "Ingles",
-                sub: "UNNE",
-                img: En,
-                url: "https://drive.google.com/file/d/1KFudHRqzy0tR3lDOjKhrtGqcb9ZO5lYp/view",
+                title: "Desarrollo Web",
+                sub: "Udemy",
+                img: devweb,
+                url: "https://drive.google.com/file/d/16AzArzSVf9IBfoqJP47G9S2PZGQP3P1o/view",
+              },
+              {
+                title: "Master en CSS",
+                sub: "Udemy",
+                img: MasterCSS,
+                url: "https://drive.google.com/file/d/1D4qG1-yuACSaGrNd5RKZ8b15pcnrIog-/view",
+              },
+              {
+                title: "Operador Excel",
+                sub: "EFP N°4",
+                inProgress: true,
+                url: "#",
               },
               {
                 title: "Portugues",

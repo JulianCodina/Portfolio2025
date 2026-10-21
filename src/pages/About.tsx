@@ -26,14 +26,12 @@ function About() {
   const db = useThemedAsset("db");
   const right = useThemedAsset("right");
 
-  const texts = {
-    es: {
-      title: "Sobre Mí",
+  const texts = {    es: {      title: "Sobre Mí",
       text: [
-        "¡Hola! Soy Julián Codina, técnico en programación con experiencia en desarrollo web intuitivo y amigable para el usuario.",
-        "He colaborado en diferentes áreas como backend, frontend, diseño y gestión de bases de datos, lo cual me ha ayudado a aprender y formarme como desarrollador.",
+        "Soy Técnico en Programación (UTN) y Desarrollador Full Stack con foco en React, Next.js, TypeScript y Python. Cuento con más de 2 años de experiencia construyendo aplicaciones web intuitivas, escalables y orientadas al usuario.",
+        "Actualmente lidero el frontend de PartiDale, una plataforma SaaS para la gestión de complejos deportivos. Me motiva escribir código limpio, aprender continuamente y crear soluciones con impacto real para el usuario.",
       ],
-      especialidades: "Mis especialidades son ",
+      especialidades: "Mis tecnologías principales son ",
       role: "Desarrollador Full Stack",
       jobTitle: "Técnico en Programación",
       viewCV: "Ver mi CV",
@@ -55,10 +53,10 @@ function About() {
     en: {
       title: "About Me",
       text: [
-        "Hi! I'm Julián Codina, a programming technician with experience in intuitive and user-friendly web development.",
-        "I've collaborated in different areas such as backend, frontend, design, and database management, which has helped me learn and shape myself as a developer.",
+        "I'm a Programming Technician (UTN) and Full Stack Developer focused on React, Next.js, TypeScript, and Python, with 2+ years of experience building intuitive and scalable web applications.",
+        "Currently, I lead frontend development at PartiDale, a sports-complex management SaaS platform. I'm passionate about clean code, continuous learning, and crafting solutions that deliver real value to users.",
       ],
-      especialidades: "My specialties are ",
+      especialidades: "My core technologies are ",
       role: "Full Stack Developer",
       jobTitle: "Programming Technician",
       viewCV: "View my CV",
@@ -80,10 +78,10 @@ function About() {
     pt: {
       title: "Sobre Mim",
       text: [
-        "Olá! Sou o Julián Codina, técnico em programação com experiência no desenvolvimento web intuitivo e amigável para o usuário.",
-        "Eu colaborei em diferentes áreas como backend, frontend, design e gerenciamento de bancos de dados, o que me permitiu aprender e formar como desenvolvedor.",
+        "Sou Técnico em Programação (UTN) e Desenvolvedor Full Stack com foco em React, Next.js, TypeScript e Python, com mais de 2 anos de experiência na criação de aplicações web intuitivas e escaláveis.",
+        "Atualmente lidero o frontend da PartiDale, uma plataforma SaaS para gestão de complexos esportivos. Sou motivado por código limpo, aprendizado contínuo e desenvolvimento de soluções com impacto real.",
       ],
-      especialidades: "Minhas especialidades ",
+      especialidades: "Minhas principais tecnologias são ",
       role: "Desenvolvedor Full Stack",
       jobTitle: "Técnico em Programação",
       viewCV: "Ver meu CV",
@@ -156,12 +154,14 @@ function About() {
         <div className="body">
           <h2>{texts[language].title}</h2>
           <div className="texts">
-            <p>{texts[language].text[0]}</p>
-            <p>{texts[language].text[1]}</p>
+            {texts[language].text.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
             <p className="especialidades">
               {texts[language].especialidades}
-              <span id="java">Java</span> <span id="python">Python</span>{" "}
-              <span id="react">React</span>
+              <span id="react">React</span>{" "}
+              <span id="typescript">TypeScript</span>{" "}
+              <span id="python">Python</span>
             </p>
           </div>
         </div>

@@ -66,6 +66,9 @@
   width: 70%;
 }
 #about .about-me .body .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   text-align: justify;
 }
 #about .about-me .body .especialidades {
@@ -75,7 +78,7 @@
   text-wrap: nowrap;
   flex-wrap: wrap;
 }
-#java,
+#typescript,
 #python,
 #react {
   color: var(--absolute);
@@ -83,14 +86,14 @@
   padding: 1px 6px;
   margin: 0 1px 0 5px;
 }
-#java {
-  background-color: rgba(185, 52, 0, 0.2);
+#typescript {
+  background-color: rgba(0, 47, 255, 0.2);
 }
 #python {
-  background-color: rgba(205, 0, 3, 0.2);
+  background-color: rgba(255, 0, 4, 0.2);
 }
 #react {
-  background-color: rgba(39, 106, 162, 0.2);
+  background-color: rgba(0, 140, 255, 0.2);
 }
 
 .flip-card {

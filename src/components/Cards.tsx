@@ -2,6 +2,7 @@ import style from "./Cards.module.css";
 import type { ReactNode } from "react";
 import { useThemedAsset } from "../theme";
 import { BtnSolid } from "../components/Inputs";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface AboutCard {
   icon?: string;
@@ -75,6 +76,25 @@ interface PrjCard {
   }[];
 }
 
+function ProjectButton({
+  action,
+  url,
+  title,
+}: {
+  action: string;
+  url: string;
+  title: string;
+}) {
+  const icon = useThemedAsset(action);
+  return (
+    <BtnSolid
+      icon1={icon}
+      onClick={() => window.open(url, "_blank")}
+      title={title}
+    />
+  );
+}
+
 export function PrjCard({
   key,
   preview,
@@ -91,10 +111,10 @@ export function PrjCard({
         <p className={style.task}>{task}</p>
         <div className={style.buttons}>
           {buttons.map((btn) => (
-            <BtnSolid
+            <ProjectButton
               key={btn.action}
-              icon1={useThemedAsset(btn.action)}
-              onClick={() => window.open(btn.url)}
+              action={btn.action}
+              url={btn.url}
               title={btn.title}
             />
           ))}
@@ -142,17 +162,33 @@ export function Stack({ title, content }: StackProps) {
     </div>
   );
 }
+interface CertificateItem {
+  url: string;
+  img?: string;
+  title: string;
+  sub: string;
+  inProgress?: boolean;
+}
 
 interface Certificates {
-  content: {
-    url: string;
-    img?: string;
-    title: string;
-    sub: string;
-  }[];
+  content: CertificateItem[];
 }
 
 export function Certificate({ content }: Certificates) {
+  const { language } = useLanguage();
+
+  const inProgressLabels = {
+    es: "En curso",
+    en: "In progress",
+    pt: "Em andamento",
+  };
+
+  const tooltipLabels = {
+    es: "Certificado en trámite / En curso",
+    en: "Certificate in progress",
+    pt: "Certificado em andamento",
+  };
+
   return (
     <div className={style.Carrousel}>
       <div className={style.container}>
@@ -160,9 +196,26 @@ export function Certificate({ content }: Certificates) {
           <div
             key={index}
             className={style.item}
-            onClick={() => window.open(item.url)}
+            title={
+              item.inProgress || item.url === "#"
+                ? tooltipLabels[language] || tooltipLabels.es
+                : undefined
+            }
+            onClick={() => {
+              if (item.url && item.url !== "#") {
+                window.open(item.url, "_blank");
+              }
+            }}
           >
-            <img src={item.img} className={style.img} alt={item.title} />
+            {item.inProgress ? (
+              <div className={style.placeholderInProgress}>
+                <span className={style.placeholderText}>
+                  {inProgressLabels[language] || inProgressLabels.es}
+                </span>
+              </div>
+            ) : (
+              <img src={item.img} className={style.img} alt={item.title} />
+            )}
             <div className={style.texts}>
               <p className={style.title}>{item.title}</p>
               <p className="p-small">{item.sub}</p>
