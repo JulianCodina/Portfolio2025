@@ -2,12 +2,7 @@ import style from "./Header.module.css";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
 import { useState, useEffect } from "react";
-
-import dark from "/theme & language/dark.png";
-import light from "/theme & language/light.png";
-import es from "/theme & language/mexico.png";
-import en from "/theme & language/eeuu.png";
-import pt from "/theme & language/brazil.png";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 export default function Header() {
   const { language, setLanguage } = useLanguage();
@@ -53,50 +48,80 @@ export default function Header() {
     <header>
       <div className={style.Header}>
         <div className={style.left}>
-          <p className="p-big">
-            {"</>"}
-            <span>Julián</span>
-          </p>
-          <div className={style.buttons}>
-            <div className="theme" onClick={toggleTheme}>
-              <img src={theme === "light" ? light : dark} alt="dark" />
+          <button
+            type="button"
+            className={style.logoBtn}
+            onClick={() => setTab("about")}
+            aria-label="Julián - Inicio"
+          >
+            <img src="/ui/favicon.svg" alt="Logo Julián Codina" className={style.logoImg} />
+            <span className={style.logoText}>Julián</span>
+          </button>
+        </div>
+        <div className={style.right}>
+          <nav aria-label="Navegación principal">
+            <button
+              type="button"
+              className={tab === "about" ? style.navSelected : style.navLink}
+              onClick={() => setTab("about")}
+            >
+              {navTexts[language].about}
+            </button>
+            <button
+              type="button"
+              className={tab === "portfolio" ? style.navSelected : style.navLink}
+              onClick={() => setTab("portfolio")}
+            >
+              {navTexts[language].portfolio}
+            </button>
+            <button
+              type="button"
+              className={tab === "contact" ? style.navSelected : style.navLink}
+              onClick={() => setTab("contact")}
+            >
+              {navTexts[language].contact}
+            </button>
+          </nav>
+          <div className={style.controls}>
+            <div className={style.langGroup} role="group" aria-label="Idioma">
+              <button
+                type="button"
+                className={language === "es" ? style.langActive : style.langBtn}
+                onClick={() => setLanguage("es")}
+                aria-label="Español"
+              >
+                ES
+              </button>
+              <span className={style.langDivider}>/</span>
+              <button
+                type="button"
+                className={language === "en" ? style.langActive : style.langBtn}
+                onClick={() => setLanguage("en")}
+                aria-label="English"
+              >
+                EN
+              </button>
+              <span className={style.langDivider}>/</span>
+              <button
+                type="button"
+                className={language === "pt" ? style.langActive : style.langBtn}
+                onClick={() => setLanguage("pt")}
+                aria-label="Português"
+              >
+                PT
+              </button>
             </div>
-            <div className="language">
-              <img
-                src={language === "es" ? es : language === "en" ? en : pt}
-                onClick={() => {
-                  if (language === "es") {
-                    setLanguage("en");
-                  } else if (language === "en") {
-                    setLanguage("pt");
-                  } else {
-                    setLanguage("es");
-                  }
-                }}
-              />
-            </div>
+            <button
+              type="button"
+              className={style.themeBtn}
+              onClick={toggleTheme}
+              aria-label={theme === "light" ? "Cambiar a modo oscuro" : "Cambiar a modo claro"}
+              title={theme === "light" ? "Modo oscuro" : "Modo claro"}
+            >
+              {theme === "light" ? <FiMoon size={18} /> : <FiSun size={18} />}
+            </button>
           </div>
         </div>
-        <nav>
-          <h3
-            className={tab === "about" ? style.selected : style.unselected}
-            onClick={() => setTab("about")}
-          >
-            {navTexts[language].about}
-          </h3>
-          <h3
-            className={tab === "portfolio" ? style.selected : style.unselected}
-            onClick={() => setTab("portfolio")}
-          >
-            {navTexts[language].portfolio}
-          </h3>
-          <h3
-            className={tab === "contact" ? style.selected : style.unselected}
-            onClick={() => setTab("contact")}
-          >
-            {navTexts[language].contact}
-          </h3>
-        </nav>
       </div>
     </header>
   );

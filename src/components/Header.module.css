@@ -9,90 +9,247 @@ header {
   box-shadow: var(--shadow-main);
   justify-content: center;
   align-items: center;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 1.25rem 1.25rem;
   z-index: 100;
 }
+
 .Header {
   display: flex;
-  width: 60%;
+  max-width: 54rem;
+  width: 92%;
   justify-content: space-between;
-  padding: 8px;
-  color: var(--primary-text);
-}
-.Header * {
-  display: flex;
   align-items: center;
-}
-header .left {
-  gap: 10px;
-}
-header .buttons {
-  gap: 5px;
-}
-header .buttons div {
-  display: flex;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 50%;
-  background-color: var(--bg-1);
-  align-items: center;
-  justify-content: center;
-}
-header .buttons div:hover {
-  background-color: var(--bg-less);
-}
-header .buttons img {
-  width: 20px;
-  height: 20px;
-}
-header .theme {
-  cursor: pointer;
+  padding: 0.45rem 0;
+  color: var(--text-primary);
+  box-sizing: border-box;
 }
 
-header .language {
+.Header * {
+  box-sizing: border-box;
+}
+
+header .left {
+  display: flex;
+  align-items: center;
+}
+
+.logoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: opacity 0.2s ease, transform 0.15s ease;
 }
+
+.logoBtn:hover {
+  opacity: 0.88;
+  transform: scale(1.02);
+}
+
+.logoBtn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 0.35rem;
+}
+
+.logoImg {
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 0.42rem;
+  display: block;
+  object-fit: contain;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.logoText {
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.themeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  min-height: 2.35rem;
+  padding: 0.4rem;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, color 0.2s ease;
+}
+
+.themeBtn svg {
+  color: var(--text-primary);
+  stroke: currentColor;
+  display: block;
+}
+
+.themeBtn:hover {
+  background-color: var(--bg-less);
+  transform: scale(1.05);
+}
+
+.themeBtn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.langGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.45rem;
+  background-color: var(--bg-2);
+}
+
+.langBtn,
+.langActive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  padding: 0 0.35rem;
+  background: transparent;
+  border: none;
+  font-size: 0.81rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  border-radius: 0.25rem;
+}
+
+.langBtn {
+  color: var(--text-tertiary);
+}
+
+.langBtn:hover {
+  color: var(--text-primary);
+}
+
+.langActive {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.langDivider {
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  user-select: none;
+  opacity: 0.6;
+}
+
 header nav {
-  gap: 25px;
-  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
-header nav h3 {
+
+.navLink,
+.navSelected {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  min-height: 2.35rem;
+  padding: 0 0.45rem;
+  background: transparent;
+  border: none;
+  font-size: 0.94rem;
+  font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
   transition: color 0.2s ease;
 }
-.unselected:hover {
-  color: var(--text-tertiary);
+
+.navLink {
+  color: var(--text-primary);
 }
-header .selected {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+
+.navLink:hover {
   color: var(--primary);
 }
-header .selected::after {
-  content: "";
-  margin: 3px 0 -5px;
-  width: 100%;
-  height: 2px;
-  border-radius: 20px;
-  background-color: var(--primary);
-  animation: selected 0.2s ease-in-out;
-  animation-fill-mode: forwards;
+
+.navSelected {
+  color: var(--primary);
 }
+
+.navSelected::after {
+  content: "";
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--primary);
+  animation: selected 0.25s ease-in-out forwards;
+}
+
 @keyframes selected {
   0% {
-    width: 0;
+    transform: scaleX(0);
   }
   100% {
-    width: 100%;
+    transform: scaleX(1);
   }
 }
 
 @media (max-width: 768px) {
   .Header {
-    width: 85%;
+    width: 95%;
   }
-  .Header .left p {
+
+  .right {
+    gap: 0.65rem;
+  }
+
+  header nav {
+    gap: 0.45rem;
+  }
+
+  .navLink,
+  .navSelected {
+    font-size: 0.88rem;
+    padding: 0 0.25rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .logoText {
     display: none;
+  }
+}
+
+@media (max-width: 440px) {
+  header .left {
+    display: none;
+  }
+
+  .Header {
+    justify-content: center;
   }
 }
