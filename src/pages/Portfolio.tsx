@@ -1,9 +1,9 @@
 import "./Portfolio.css";
 import { BtnOutlined } from "../components/Inputs";
-import { useThemedAsset } from "../theme";
 import { ExpCard, PrjCard, Stack, Certificate } from "../components/Cards";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
+import { FiArrowRight } from "react-icons/fi";
 
 // Imágenes
 import partidaleLogo from "/logos/partidale.png";
@@ -47,8 +47,6 @@ import Pt from "/preview/portugues.webp";
 function Portfolio() {
   const { language } = useLanguage();
   const { setTab } = useTab();
-  //Iconos
-  const right = useThemedAsset("right");
 
   const texts = {
     es: {
@@ -58,7 +56,7 @@ function Portfolio() {
       certTitle: "Certificados",
       contact: "Contacto",
       expPartidale: {
-        title: "Founder & Frontend Developer",
+        title: "Fundador & Desarrollador Frontend",
         date: "Febrero 2026 - Presente",
         points: [
           "Diseño y desarrollo de plataforma web para reserva de canchas deportivas e información de clubes con Next.js, React.js y TypeScript.",
@@ -214,7 +212,7 @@ function Portfolio() {
       certTitle: "Certificados",
       contact: "Contacto",
       expPartidale: {
-        title: "Founder & Frontend Developer",
+        title: "Fundador & Desenvolvedor Frontend",
         date: "Fevereiro 2026 - Presente",
         points: [
           "Design e desenvolvimento de plataforma web para reserva de quadras e informações de clubes esportivos com Next.js, React.js e TypeScript.",
@@ -326,8 +324,6 @@ function Portfolio() {
                   "OpenAI API",
                   "NodeJS",
                   "ReactJS",
-                  "JavaScript",
-                  "CSS3",
                   "Figma",
                 ]}
               />
@@ -343,7 +339,6 @@ function Portfolio() {
                   "MongoDB",
                   "ReactJS",
                   "TypeScript",
-                  "CSS3",
                   "Figma",
                 ]}
               />
@@ -357,8 +352,33 @@ function Portfolio() {
         <div className="container">
           <PrjCard
             key={1}
+            preview={chatbot}
+            task={"Full Stack"}
+            title={texts[language].projects.chatbot.title}
+            text={texts[language].projects.chatbot.description}
+            buttons={[
+              {
+                action: "deploy",
+                url: "https://iazul-chatbot.vercel.app/",
+                title: "Deploy",
+              },
+              {
+                action: "git",
+                url: "https://github.com/JulianCodina/IAzul-Chatbot",
+                title: "Github",
+              },
+            ]}
+            stack={[
+              "Python",
+              "FastApi",
+              "Supabase",
+              "ReactJS",
+            ]}
+          />
+          <PrjCard
+            key={2}
             preview={sentirsebien}
-            task={"Frontend"}
+            task={"Full Stack"}
             title={texts[language].projects.sentirsebien.title}
             text={texts[language].projects.sentirsebien.description}
             buttons={[
@@ -383,12 +403,11 @@ function Portfolio() {
               "MongoDB",
               "ReactJS",
               "TypeScript",
-              "CSS3",
               "Figma",
             ]}
           />
           <PrjCard
-            key={2}
+            key={3}
             preview={podcast}
             task={"Frontend"}
             title={texts[language].projects.podcast.title}
@@ -405,53 +424,26 @@ function Portfolio() {
                 title: "Github",
               },
             ]}
-            stack={["ReactJS", "Figma", "TypeScript", "CSS"]}
+            stack={["ReactJS", "Figma", "TypeScript"]}
           />
           <PrjCard
-            preview={chatbot}
-            task={"Full Stack"}
-            title={texts[language].projects.chatbot.title}
-            text={texts[language].projects.chatbot.description}
+            key={4}
+            preview={wishWallet}
+            task={"Mobile"}
+            title={texts[language].projects.wishWallet.title}
+            text={texts[language].projects.wishWallet.description}
             buttons={[
               {
-                action: "deploy",
-                url: "https://iazul-chatbot.vercel.app/",
-                title: "Deploy",
-              },
-              {
                 action: "git",
-                url: "https://github.com/JulianCodina/IAzul-Chatbot",
+                url: "https://github.com/JulianCodina/WishWallet",
                 title: "Github",
               },
             ]}
             stack={[
-              "Python",
-              "FastApi",
-              "Supabase",
-              "CSS",
-              "JavaScript",
+              "React Native",
               "ReactJS",
+              "React Navigation",
             ]}
-          />
-          <PrjCard
-            key={4}
-            preview={portfolio}
-            task={"Frontend"}
-            title={texts[language].projects.portfolio.title}
-            text={texts[language].projects.portfolio.description}
-            buttons={[
-              {
-                action: "git",
-                url: "https://github.com/JulianCodina/Portfolio2025",
-                title: "Github",
-              },
-              {
-                action: "figma",
-                url: "https://www.figma.com/design/F9LYoJh6j0duEpGX9YnEwX/Portfolio-2025?node-id=0-1&p=f&t=LXHxC2ejwL2lc5rP-0",
-                title: "Figma",
-              },
-            ]}
-            stack={["ReactJS", "Figma", "TypeScript", "CSS"]}
           />
           <PrjCard
             key={5}
@@ -471,12 +463,30 @@ function Portfolio() {
               "SQLite",
               "ApiREST",
               "ReactJS",
-              "JavaScript",
-              "CSS",
             ]}
           />
           <PrjCard
             key={6}
+            preview={portfolio}
+            task={"Frontend"}
+            title={texts[language].projects.portfolio.title}
+            text={texts[language].projects.portfolio.description}
+            buttons={[
+              {
+                action: "git",
+                url: "https://github.com/JulianCodina/Portfolio2025",
+                title: "Github",
+              },
+              {
+                action: "figma",
+                url: "https://www.figma.com/design/F9LYoJh6j0duEpGX9YnEwX/Portfolio-2025?node-id=0-1&p=f&t=LXHxC2ejwL2lc5rP-0",
+                title: "Figma",
+              },
+            ]}
+            stack={["ReactJS", "Figma", "TypeScript"]}
+          />
+          <PrjCard
+            key={7}
             preview={abandonados}
             task={"Frontend"}
             title={texts[language].projects.abandonados.title}
@@ -499,26 +509,6 @@ function Portfolio() {
               },
             ]}
             stack={["HTML", "CSS", "JavaScript"]}
-          />
-          <PrjCard
-            key={7}
-            preview={wishWallet}
-            task={"Frontend"}
-            title={texts[language].projects.wishWallet.title}
-            text={texts[language].projects.wishWallet.description}
-            buttons={[
-              {
-                action: "git",
-                url: "https://github.com/JulianCodina/WishWallet",
-                title: "Github",
-              },
-            ]}
-            stack={[
-              "React Native",
-              "ReactJS",
-              "React Navigation",
-              "JavaScript",
-            ]}
           />
         </div>
       </div>
@@ -627,16 +617,22 @@ function Portfolio() {
                 url: "https://drive.google.com/file/d/1RSFrS9gLhbfIKQSWAWLEpK87XV0h0sPM/view",
               },
               {
-                title: "Ingles",
-                sub: "UNNE",
-                img: En,
-                url: "https://drive.google.com/file/d/1KFudHRqzy0tR3lDOjKhrtGqcb9ZO5lYp/view",
-              },
-              {
                 title: "Diseño UI",
                 sub: "Informatorio",
                 img: Design,
                 url: "https://drive.google.com/file/d/19bmcisFd9p97JRO2Zv5NwWCjvZ70t5_Q/view",
+              },
+              {
+                title: "Ingles",
+                sub: "UNNE",
+                img: En,
+                url: "https://drive.google.com/file/d/1KFudHRqzy0tR3lDOjKhrtGqcb9ZO5lYp/view",
+              }, 
+              {
+                title: "Portugues",
+                sub: "UTN",
+                img: Pt,
+                url: "https://drive.google.com/file/d/1GY-kv4pxgMDZsmT2mR_U4GPzghxkw4li/view",
               },
               {
                 title: "Desarrollo Web",
@@ -655,13 +651,7 @@ function Portfolio() {
                 sub: "EFP N°4",
                 inProgress: true,
                 url: "#",
-              },
-              {
-                title: "Portugues",
-                sub: "UTN",
-                img: Pt,
-                url: "https://drive.google.com/file/d/1GY-kv4pxgMDZsmT2mR_U4GPzghxkw4li/view",
-              },
+              }
             ]}
           />
         </div>
@@ -669,9 +659,8 @@ function Portfolio() {
 
       <div className="footer">
         <BtnOutlined
-          icon1=""
           text={texts[language].contact}
-          icon2={right}
+          icon2={<FiArrowRight size={16} />}
           onClick={() => setTab("contact")}
         />
       </div>

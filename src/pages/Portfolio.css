@@ -1,16 +1,21 @@
 #portfolio {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  padding-top: 15px;
+  align-items: stretch;
+  gap: 2.25rem;
+  padding-top: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .experience {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .experience .body {
   display: flex;
   width: 100%;
@@ -19,86 +24,141 @@
 }
 
 .experience .line {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
-  width: 4px;
-  margin: 0 8px;
-  height: 80%;
-  background-color: var(--primary);
-  border-radius: 50px;
+  display: none;
 }
 
 .experience .container {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  gap: 15px;
-  padding-left: 40px;
-}
-#portfolio .container .card {
-  position: relative;
+  width: 100%;
+  gap: 1.25rem;
+  padding-left: 2.25rem;
+  box-sizing: border-box;
 }
 
+.experience .container .card {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* El dot de cada tarjeta */
 .experience .container .card:before {
   content: "";
   position: absolute;
-  left: -40px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: -2.25rem;
+  top: 2.33rem;
+  transform: translate(-50%, -50%);
   z-index: 4;
-  width: 15px;
-  height: 15px;
+  width: 0.81rem;
+  height: 0.81rem;
   background-color: var(--primary);
   border-radius: 50%;
-  border: 3px solid var(--bg);
+  border: 3px solid var(--bg-1);
+  box-shadow: 0 0 0 1px var(--bg-2);
+  box-sizing: content-box;
+}
+
+/* Línea que conecta cada dot exclusivamente con el siguiente dot (nunca por arriba del primero) */
+.experience .container .card:not(:last-child):after {
+  content: "";
+  position: absolute;
+  left: -2.25rem;
+  top: 2.33rem;
+  bottom: calc(-1.25rem - 2.33rem);
+  width: 3px;
+  background-color: var(--primary);
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 #portfolio .projects {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
+
 .projects .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: stretch;
+  gap: 1rem;
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  box-sizing: border-box;
+}
+
+.projects .container > div:nth-child(-n+3) {
+  grid-column: span 4;
+}
+
+.projects .container > div:nth-child(n+4) {
+  grid-column: span 3;
 }
 
 #portfolio .stacks {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
+
 .stacks .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.5rem;
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+  box-sizing: border-box;
 }
 
 #portfolio .certificates {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 #portfolio .footer {
   display: flex;
-  align-self: flex-end;
-  height: 35px;
+  justify-content: flex-end;
+  width: 100%;
+  padding-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
   #portfolio {
-    padding-top: 0px;
+    padding-top: 0;
+    gap: 1.75rem;
+  }
+
+  .experience .container {
+    padding-left: 1.75rem;
+  }
+
+  .experience .container .card:before {
+    left: -1.75rem;
+    top: 2.35rem;
+  }
+
+  .experience .container .card:not(:last-child):after {
+    left: -1.75rem;
+    top: 2.35rem;
+    bottom: calc(-1.25rem - 2.35rem);
+  }
+
+  .projects .container {
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+}
+
+.projects .container > div:nth-child(-n+3),
+.projects .container > div:nth-child(n+4) {
+  grid-column: auto;
+}
+
+  .stacks .container {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,12 +1,17 @@
 .AboutContainer {
-  padding: 3px 0 0;
+  padding-top: 0.15rem;
   transition: all 0.2s ease;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
+
 .AboutContainer:hover {
-  padding: 0 0 3px;
+  transform: translateY(-2px);
 }
+
 .AboutContainer .card {
   display: flex;
   align-items: center;
@@ -15,97 +20,155 @@
   border-top: 2px solid var(--bg-2);
   box-sizing: border-box;
   box-shadow: var(--shadow-main);
-  padding: 15px 5px 15px 12px;
-  border-radius: 15px;
-  gap: 12px;
-  width: 240px;
-  transition: box-shadow 0.2s ease;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  gap: 0.85rem;
+  width: 100%;
+  height: 100%;
+  min-height: 4.85rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
 .AboutContainer .card:hover {
   box-shadow: var(--shadow-tall);
 }
+
+.AboutContainer .iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  min-width: 2.35rem;
+  border-radius: 0.6rem;
+  background-color: var(--primary-bg);
+  color: var(--primary);
+}
+
+.AboutContainer .iconWrapper svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.AboutContainer .img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+}
+
 .AboutContainer .texts {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
   height: 100%;
 }
 
-.AboutContainer .img {
-  width: 30px;
-  height: 30px;
-  opacity: 0.85;
-  align-self: center;
-  background-color: var(--bg-1);
+.AboutContainer .texts .title h3 {
+  margin: 0;
+  font-size: 0.97rem;
 }
 
+.AboutContainer .texts .text p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+/* Experiencia */
 .ExpCard {
   display: flex;
   flex-direction: column;
   color: var(--text-primary);
   background-color: var(--bg-1);
-
   border: 2px solid var(--bg-1);
   border-top: 2px solid var(--bg-2);
   box-sizing: border-box;
   box-shadow: var(--shadow-main);
-  padding: 15px;
-  border-radius: 20px;
-  gap: 20px;
+  padding: 1.13rem 1.25rem;
+  border-radius: 1.13rem;
+  gap: 1rem;
   width: 100%;
-  transition: border 0.2s ease-in, box-shadow 0.2s ease-in;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
 .ExpCard:hover {
-  border: 2px solid var(--primary);
-  box-shadow: none;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-tall);
 }
+
 .ExpCard .header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  gap: 10px;
+  gap: 0.5rem;
 }
+
 .ExpCard .header .top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0.75rem;
   width: 100%;
+  flex-wrap: wrap;
 }
+
 .ExpCard .header .top .img {
   width: auto;
-  height: 30px;
+  height: 2.4rem;
+  max-width: 9rem;
+  object-fit: contain;
+  border-radius: 0.35rem;
 }
+
 .ExpCard .header .top .task {
-  padding: 3px 10px;
+  padding: 0.2rem 0.65rem;
   background-color: var(--bg-2);
   color: var(--primary);
-  border-radius: 50px;
+  border-radius: 2rem;
   box-shadow: var(--shadow-main);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
 }
+
 .ExpCard .texts {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 0 12px;
+  gap: 0.4rem;
+}
+
+.ExpCard .texts p {
+  margin: 0;
+  line-height: 1.5;
 }
 
 .ExpCard .stack {
   width: 100%;
   flex-wrap: wrap;
   display: flex;
-  gap: 8px;
-}
-.ExpCard .stack p {
-  padding: 3px 10px;
-  background-color: var(--primary-bg);
-  color: var(--primary);
-  border-radius: 50px;
-  width: fit-content;
+  gap: 0.45rem;
 }
 
+.ExpCard .stack p,
+.PrjCard .stack p {
+  padding: 0.2rem 0.65rem;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: 2rem;
+  width: fit-content;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Proyectos */
 .PrjCard {
   display: flex;
   flex-direction: column;
@@ -114,12 +177,19 @@
   border-top: 2px solid var(--bg-2);
   box-sizing: border-box;
   box-shadow: var(--shadow-main);
-  padding: 10px;
-  border-radius: 20px;
-  gap: 15px;
-  width: 210px;
-  height: auto;
+  padding: 0.75rem;
+  border-radius: 0.95rem;
+  gap: 0.65rem;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.PrjCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-tall);
+}
+
 .PrjCard .header {
   position: relative;
   display: flex;
@@ -127,62 +197,117 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 6.75rem;
   background-color: var(--primary-bg);
-  border-radius: 10px;
+  border-radius: 0.65rem;
   overflow: hidden;
 }
+
 .PrjCard .header .img {
-  width: 80%;
+  width: 82%;
   height: auto;
-  border-radius: 3px;
-  transition: all 0.3s ease;
+  border-radius: 0.3rem;
+  transition: transform 0.3s ease;
 }
+
 .PrjCard:hover .header .img {
-  width: 85%;
-  transform: rotate(4deg);
+  transform: scale(1.05) rotate(2deg);
 }
+
 .PrjCard .header .task {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  padding: 3px 10px;
+  top: 0.35rem;
+  left: 0.35rem;
+  padding: 0.15rem 0.5rem;
   background-color: var(--bg-2);
   color: var(--primary);
-  border-radius: 10px;
+  border-radius: 0.4rem;
+  font-size: 0.69rem;
+  font-weight: 700;
+  margin: 0;
+  box-shadow: var(--shadow-main);
 }
+
 .PrjCard .buttons {
   display: flex;
   position: absolute;
-  bottom: 5px;
-  left: 5px;
-  gap: 5px;
+  bottom: 0.35rem;
+  left: 0.35rem;
+  gap: 0.25rem;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
-.PrjCard:hover .buttons {
+
+.projectButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border-radius: 0.38rem;
+  background-color: var(--bg-1);
+  color: var(--primary);
+  border: 1px solid var(--bg-less);
+  box-shadow: var(--shadow-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.projectButton:hover {
+  background-color: var(--bg-2);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-tall);
+  color: var(--primary);
+}
+
+.PrjCard:hover .buttons,
+.PrjCard:focus-within .buttons {
   opacity: 1;
 }
+
 .PrjCard .texts {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  height: 110px;
+  gap: 0.35rem;
+  flex-grow: 1;
 }
+
+.PrjCard .texts h3 {
+  margin: 0;
+  font-size: 0.97rem;
+}
+
+.PrjCard .texts p {
+  margin: 0;
+  font-size: 0.81rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
 .PrjCard .stack {
   width: 100%;
   flex-wrap: wrap;
   display: flex;
-  gap: 8px;
-}
-.PrjCard .stack p {
-  padding: 3px 10px;
-  background-color: var(--primary-bg);
-  color: var(--primary);
-  border-radius: 50px;
-  width: fit-content;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
 }
 
+.PrjCard .stack p {
+  padding: 0.15rem 0.5rem;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: 2rem;
+  width: fit-content;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Stacks / Especialidades */
 .StackCard {
   position: relative;
   display: flex;
@@ -192,28 +317,31 @@
   border-top: 2px solid var(--bg-2);
   box-sizing: border-box;
   box-shadow: var(--shadow-main);
-  padding: 10px;
-  border-radius: 20px;
-  gap: 15px;
-  width: fit-content;
-  height: auto;
-  margin-top: 30px;
+  padding: 1.5rem 1rem 1rem;
+  border-radius: 1.25rem;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1.75rem;
 }
 
 .StackCard .task {
   position: absolute;
-  top: -29px;
-  left: 20px;
-  padding: 5px 15px;
+  top: -1.25rem;
+  left: 1.25rem;
+  padding: 0.35rem 1rem;
   background-color: var(--bg-2);
   color: var(--primary);
-  border-radius: 10px 10px 0 0;
+  border-radius: 0.65rem 0.65rem 0 0;
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin: 0;
+  box-shadow: var(--shadow-main);
 }
 
 .StackCard .stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+  gap: 0.75rem;
   width: 100%;
 }
 
@@ -221,62 +349,74 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   text-align: center;
   transition: all 0.2s ease;
-  padding: 10px 10px 5px;
-  border-radius: 10px;
-  width: 60px;
+  padding: 0.65rem 0.4rem;
+  border-radius: 0.65rem;
 }
 
 .StackCard .item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   background-color: var(--bg-2);
 }
 
 .StackCard .img {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
+
 .StackCard .item:hover .img {
   transform: scale(1.1);
 }
 
+.StackCard .title {
+  font-size: 0.81rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Carrousel / Certificados */
 .Carrousel {
   width: 100%;
   background-color: var(--bg-less);
   border-bottom: 2px solid var(--bg-2);
   box-shadow: inset var(--shadow-main);
-  border-radius: 20px;
-  padding: 10px 0 7px;
+  border-radius: 1.25rem;
+  padding: 0.85rem 0 0.65rem;
+  box-sizing: border-box;
 }
 
 .Carrousel .container {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
   width: auto;
-  margin: 0px 20px 0;
-  overflow-x: scroll;
+  margin: 0 1.25rem;
+  overflow-x: auto;
   overflow-y: hidden;
+  padding-bottom: 0.25rem;
 }
+
 .Carrousel .container::-webkit-scrollbar {
-  height: 8px;
+  height: 0.5rem;
 }
+
 .Carrousel .container::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
-  opacity: 0.5;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   border: none;
   transition: all 0.2s ease;
 }
+
 .Carrousel .container::-webkit-scrollbar-thumb:hover {
   background-color: var(--scrollbar-thumb-hover);
 }
+
 .Carrousel .container::-webkit-scrollbar-track {
   background-color: var(--scrollbar-track);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .Carrousel .item {
@@ -284,45 +424,56 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
-  height: 120px;
+  justify-content: flex-end;
+  height: 8rem;
   cursor: pointer;
-  margin-bottom: 7px;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
 .Carrousel .item .texts {
-  border-radius: 5px;
+  border-radius: 0.5rem;
   background-color: var(--bg-1);
-  padding: 30px 10px 10px;
-  width: 90px;
+  padding: 2rem 0.65rem 0.65rem;
+  width: 6.25rem;
   box-shadow: var(--shadow-main);
+  text-align: center;
+}
+
+.Carrousel .item .title {
+  font-size: 0.81rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+  line-height: 1.3;
 }
 
 .Carrousel .item .img {
   position: absolute;
-  top: 4px;
+  top: 0.25rem;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: var(--shadow-main);
-  width: 90px;
+  width: 5.75rem;
   height: auto;
+  border-radius: 0.25rem;
   z-index: 20;
   transition: top 0.2s ease, box-shadow 0.2s ease;
 }
+
 .Carrousel .item:hover .img {
-  top: 0px;
+  top: 0;
   box-shadow: var(--shadow-tall);
 }
 
 .Carrousel .item .placeholderInProgress {
   position: absolute;
-  top: 4px;
+  top: 0.25rem;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: var(--shadow-main);
-  width: 90px;
-  height: 60px;
-  border-radius: 4px;
+  width: 5.75rem;
+  height: 3.75rem;
+  border-radius: 0.25rem;
   background-color: #141416;
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
@@ -335,16 +486,16 @@
 }
 
 .Carrousel .item:hover .placeholderInProgress {
-  top: 0px;
+  top: 0;
   box-shadow: var(--shadow-tall);
   border-color: rgba(255, 255, 255, 0.25);
 }
 
 .Carrousel .item .placeholderText {
   color: #a1a1aa;
-  font-size: 9.5px;
+  font-size: 0.63rem;
   font-weight: 600;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: center;
   line-height: 1.2;
@@ -367,7 +518,6 @@
   }
 }
 
-/* Sutil y armónico para tema oscuro */
 :global([data-theme="dark"]) .Carrousel .item .placeholderInProgress {
   background-color: #262629;
   border-color: rgba(255, 255, 255, 0.05);
@@ -397,6 +547,7 @@
   }
 }
 
+/* Contact Card */
 .Contact {
   position: relative;
   display: flex;
@@ -404,66 +555,78 @@
   align-items: center;
   text-align: center;
   justify-content: flex-end;
-  height: 110px;
-  width: 90px;
+  height: 7.5rem;
+  min-width: 5.75rem;
   cursor: pointer;
+  outline: none;
 }
+
 .Contact .img {
   position: absolute;
-  bottom: 40%;
+  bottom: 35%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
-  width: 60px;
+  height: 3.75rem;
+  width: 3.75rem;
   border-radius: 50%;
   box-sizing: border-box;
   background-color: var(--bg-1);
   border-top: 2px solid var(--bg-2);
   box-shadow: var(--shadow-main);
-  transition: height 0.3s ease, width 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--primary);
 }
+
 .Contact .img .icon {
   height: 60%;
   width: 60%;
-  transition: all 0.3s ease;
+  object-fit: contain;
 }
-.Contact:hover .img {
-  height: 65px;
-  width: 65px;
+
+.Contact .iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
 }
-.Contact:hover .img .icon {
-  height: 70%;
-  width: 70%;
+
+.Contact .iconWrapper svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
+
+.Contact:hover .img,
+.Contact:focus-visible .img {
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: var(--shadow-tall);
+}
+
 .Contact .texts {
-  height: 35px;
+  height: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .Contact .title {
   font-weight: 600;
+  font-size: 0.88rem;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
+  .ExpCard {
+    padding: 1rem;
+  }
+
   .AboutContainer .card {
-    min-height: 100px;
-    width: 200px;
+    padding: 0.88rem 1rem;
   }
-  .AboutContainer .texts .text {
-    height: 30px;
-  }
-  .AboutContainer .img {
-    width: 20px;
-    height: 20px;
-  }
-  .PrjCard {
-    width: 75%;
-  }
-  .PrjCard .header {
-    height: 120px;
-  }
-  .PrjCard .texts {
-    height: 80px;
+
+  .StackCard {
+    margin-top: 1.5rem;
   }
 }

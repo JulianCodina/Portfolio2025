@@ -1,11 +1,11 @@
 import style from "./Cards.module.css";
 import type { ReactNode } from "react";
-import { useThemedAsset } from "../theme";
-import { BtnSolid } from "../components/Inputs";
 import { useLanguage } from "../contexts/LanguageContext";
+import { FiExternalLink } from "react-icons/fi";
+import { FaGithub, FaFigma } from "react-icons/fa6";
 
 interface AboutCard {
-  icon?: string;
+  icon?: string | ReactNode;
   title: string;
   text: ReactNode;
 }
@@ -14,7 +14,13 @@ export function AboutCard({ icon, title, text }: AboutCard) {
   return (
     <div className={style.AboutContainer}>
       <div className={style.card}>
-        <img src={icon} className={style.img} alt="icon" />
+        <div className={style.iconWrapper}>
+          {typeof icon === "string" ? (
+            <img src={icon} className={style.img} alt="icon" />
+          ) : (
+            icon
+          )}
+        </div>
         <div className={style.texts}>
           <div className={style.title}>
             <h3>{title}</h3>
@@ -47,14 +53,14 @@ export function ExpCard({ logo, task, date, text, stack }: ExpCard) {
         <p className="p-small">{date}</p>
       </div>
       <div className={style.texts}>
-        {text.map((text) => (
-          <p key={text}>{text}</p>
+        {text.map((t) => (
+          <p key={t}>{t}</p>
         ))}
       </div>
       <div className={style.stack}>
-        {stack.map((stack) => (
-          <p className="p-small" key={stack}>
-            {stack}
+        {stack.map((s) => (
+          <p className="p-small" key={s}>
+            {s}
           </p>
         ))}
       </div>
@@ -85,13 +91,23 @@ function ProjectButton({
   url: string;
   title: string;
 }) {
-  const icon = useThemedAsset(action);
+  const getIcon = () => {
+    const act = action.toLowerCase();
+    if (act.includes("git")) return <FaGithub size={13} />;
+    if (act.includes("figma")) return <FaFigma size={13} />;
+    return <FiExternalLink size={13} />;
+  };
+
   return (
-    <BtnSolid
-      icon1={icon}
+    <button
+      type="button"
+      className={style.projectButton}
       onClick={() => window.open(url, "_blank")}
       title={title}
-    />
+      aria-label={title}
+    >
+      {getIcon()}
+    </button>
   );
 }
 
@@ -107,7 +123,7 @@ export function PrjCard({
   return (
     <div className={style.PrjCard} key={key}>
       <div className={style.header}>
-        <img src={preview} className={style.img} alt="logo" />
+        <img src={preview} className={style.img} alt="preview" />
         <p className={style.task}>{task}</p>
         <div className={style.buttons}>
           {buttons.map((btn) => (
@@ -125,9 +141,9 @@ export function PrjCard({
         <p>{text}</p>
       </div>
       <div className={style.stack}>
-        {stack.map((stack) => (
-          <p className="p-small" key={stack}>
-            {stack}
+        {stack.map((s) => (
+          <p className="p-small" key={s}>
+            {s}
           </p>
         ))}
       </div>
@@ -162,6 +178,7 @@ export function Stack({ title, content }: StackProps) {
     </div>
   );
 }
+
 interface CertificateItem {
   url: string;
   img?: string;
@@ -228,7 +245,7 @@ export function Certificate({ content }: Certificates) {
 }
 
 interface ContactCard {
-  img?: string;
+  img?: string | ReactNode;
   title: string;
   sub?: string;
   onClick?: () => void;
@@ -236,9 +253,13 @@ interface ContactCard {
 
 export function ContactCard({ img, title, sub, onClick }: ContactCard) {
   return (
-    <div className={style.Contact} onClick={onClick}>
+    <div className={style.Contact} onClick={onClick} role="button" tabIndex={0}>
       <div className={style.img}>
-        <img src={img} className={style.icon} alt={title} />
+        {typeof img === "string" ? (
+          <img src={img} className={style.icon} alt={title} />
+        ) : (
+          <span className={style.iconWrapper}>{img}</span>
+        )}
       </div>
       <div className={style.texts}>
         <p className={style.title}>{title}</p>
