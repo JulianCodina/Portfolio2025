@@ -44,6 +44,7 @@ export const TabProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTab = (): TabContextType => {
   const context = useContext(TabContext);
   if (context === undefined) {
