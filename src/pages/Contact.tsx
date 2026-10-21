@@ -4,25 +4,22 @@ import { BtnOutlined, BtnSolid, TextField } from "../components/Inputs";
 import { Snackbar } from "../components/Snackbar";
 import { ContactCard } from "../components/Cards";
 import Map from "../components/Map";
-import { useThemedAsset } from "../theme";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTab } from "../contexts/TabContext";
+import {
+  FiArrowLeft,
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiSend,
+} from "react-icons/fi";
+import { FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa6";
 
 import emailjs from "emailjs-com";
 
 function Contact() {
   const { language } = useLanguage();
   const { setTab } = useTab();
-
-  //Iconos
-  const left = useThemedAsset("left");
-  const emailIcon = useThemedAsset("email");
-  const phone = useThemedAsset("phone");
-  const gps = useThemedAsset("gps");
-  const linkedin = useThemedAsset("linkedin2");
-  const instagram = useThemedAsset("instagram");
-  const facebook = useThemedAsset("facebook");
-  const send = useThemedAsset("send");
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -43,8 +40,7 @@ function Contact() {
     es: {
       title: "Contacto",
       portfolio: "Portafolio",
-      mapFocus: "Esta es mi ciudad",
-      sendMeEmailIntro: "Enviame un",
+      sendMeEmailIntro: "Escríbeme un",
       emailFieldLabel: "Correo electrónico",
       emailFieldError: "Ingrese un email válido",
       nameFieldLabel: "Nombre completo",
@@ -65,8 +61,7 @@ function Contact() {
     en: {
       title: "Contact",
       portfolio: "Portfolio",
-      mapFocus: "This is my city",
-      sendMeEmailIntro: "Send me an",
+      sendMeEmailIntro: "Write me an",
       emailFieldLabel: "Email address",
       emailFieldError: "Enter a valid email",
       nameFieldLabel: "Full name",
@@ -86,8 +81,7 @@ function Contact() {
     pt: {
       title: "Contato",
       portfolio: "Portfólio",
-      mapFocus: "Esta é a minha cidade",
-      sendMeEmailIntro: "Envie-me um",
+      sendMeEmailIntro: "Escreva-me um",
       emailFieldLabel: "Endereço de e-mail",
       emailFieldError: "Insira um e-mail válido",
       nameFieldLabel: "Nome completo",
@@ -183,7 +177,6 @@ function Contact() {
           <div className="map">
             <Map
               center={[-27.45113166461427, -58.98651292532432]}
-              focus={texts[language].mapFocus}
             />
           </div>
           <form
@@ -195,7 +188,7 @@ function Contact() {
             }}
           >
             <p className="p-big">
-              {texts[language].sendMeEmailIntro} <span>E-MAIL</span>
+              {texts[language].sendMeEmailIntro} <span>EMAIL</span>
             </p>
             <div className="textFields">
               <div className="top">
@@ -226,8 +219,14 @@ function Contact() {
               />
             </div>
             <div className="button">
-              <button
+              <BtnSolid
                 type="submit"
+                icon1={<FiSend size={16} />}
+                text={
+                  isSubmitting
+                    ? texts[language].sending
+                    : texts[language].sendButton
+                }
                 disabled={
                   !isValidEmail ||
                   !isValidName ||
@@ -237,32 +236,7 @@ function Contact() {
                   email.trim() === "" ||
                   message.trim() === ""
                 }
-                style={{
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: 0,
-                }}
-              >
-                <BtnSolid
-                  icon1={send}
-                  text={
-                    isSubmitting
-                      ? texts[language].sending
-                      : texts[language].sendButton
-                  }
-                  icon2=""
-                  disabled={
-                    !isValidEmail ||
-                    !isValidName ||
-                    !isValidMessage ||
-                    isSubmitting ||
-                    name.trim() === "" ||
-                    email.trim() === "" ||
-                    message.trim() === ""
-                  }
-                />
-              </button>
+              />
             </div>
           </form>
         </div>
@@ -270,19 +244,19 @@ function Contact() {
 
       <div className="container">
         <ContactCard
-          img={emailIcon}
+          img={<FiMail size={22} />}
           title={texts[language].gmailTitle}
           sub="depedrojulianismael"
           onClick={() => handleCopy("depedrojulianismael@gmail.com")}
         />
         <ContactCard
-          img={phone}
+          img={<FiPhone size={22} />}
           title={texts[language].phoneTitle}
           sub="+54 3624 249451"
           onClick={() => handleCopy("+54 3624 249451")}
         />
         <ContactCard
-          img={gps}
+          img={<FiMapPin size={22} />}
           title={texts[language].locationTitle}
           sub="Resistencia, Chaco"
           onClick={() =>
@@ -290,15 +264,15 @@ function Contact() {
           }
         />
         <ContactCard
-          img={linkedin}
+          img={<FaLinkedin size={22} />}
           title={"Linkedin"}
-          sub="in/julián-codina"
+          sub="in/julian-codina"
           onClick={() =>
-            window.open("https://www.linkedin.com/in/julián-codina/", "_blank")
+            window.open("https://www.linkedin.com/in/julian-codina/", "_blank")
           }
         />
         <ContactCard
-          img={instagram}
+          img={<FaInstagram size={22} />}
           title={"Instagram"}
           sub="@juliancodina"
           onClick={() =>
@@ -306,7 +280,7 @@ function Contact() {
           }
         />
         <ContactCard
-          img={facebook}
+          img={<FaFacebook size={22} />}
           title={"Facebook"}
           sub="@juliancodina"
           onClick={() =>
@@ -320,9 +294,8 @@ function Contact() {
 
       <div className="footer">
         <BtnOutlined
-          icon1={left}
+          icon1={<FiArrowLeft size={16} />}
           text={texts[language].portfolio}
-          icon2=""
           onClick={() => setTab("portfolio")}
         />
       </div>

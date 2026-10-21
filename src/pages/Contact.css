@@ -1,110 +1,179 @@
 #contact {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
-  padding-top: 15px;
-  height: 100%;
+  align-items: stretch;
+  gap: 1.85rem;
+  padding-top: 0.85rem;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 #contact .main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 15px;
+  gap: 1rem;
   width: 100%;
-  height: auto;
+}
+
+#contact .main h2 {
+  margin: 0;
 }
 
 #contact .body {
   display: flex;
-  gap: 15px;
+  align-items: flex-start;
+  gap: 1.25rem;
   justify-content: space-between;
   width: 100%;
-  height: 250px;
+  box-sizing: border-box;
 }
 
 #contact .body .map {
-  width: 35%;
-  height: 100%;
-  border-radius: 10px;
+  width: 38%;
+  height: 16.5rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
   overflow: hidden;
+  box-shadow: var(--shadow-main);
   z-index: 1;
 }
 
 #contact .body form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 60%;
-  height: 100%;
-  overflow: hidden;
-  padding: 0 5px 10px;
+  align-items: stretch;
+  width: 58%;
+  gap: 1rem;
+  box-sizing: border-box;
 }
+
+#contact .body form p {
+  margin: 0;
+}
+
 #contact .body form p span {
   color: var(--primary);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 #contact .body form .top {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
   width: 100%;
-  padding-top: 10px;
 }
 
 #contact .body form .textFields {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
   width: 100%;
-  height: 100%;
 }
 
 #contact .body .button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  min-height: 31px;
   width: 100%;
+  margin-top: 0.5rem;
 }
 
 #contact .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 1rem;
   width: 100%;
-  padding: 20px 0 15px;
+  padding: 1.25rem 0;
+  box-sizing: border-box;
 }
 
 #contact .footer {
-  padding-top: 35px;
-}
-@media (max-width: 1240px) {
-  #contact .footer {
-    padding-top: 0px;
-  }
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
   #contact {
-    padding-top: 0px;
+    padding-top: 0;
+    gap: 1.75rem;
   }
+
   #contact .body {
     flex-direction: column;
-    align-items: center;
-    height: 460px;
+    align-items: stretch;
+    min-height: auto;
   }
+
   #contact .body .map {
-    width: 80%;
-    max-height: 150px;
+    width: 100%;
+    height: 12rem;
+    min-height: 12rem;
   }
+
   #contact .body form {
-    width: 80%;
-    height: 100%;
+    width: 100%;
   }
+
   #contact .body form .top {
     flex-direction: column;
+    gap: 0.75rem;
   }
+
+  #contact .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  #contact .body .button {
+    justify-content: stretch;
+  }
+}
+
+/* Leaflet UI theme styling */
+.leaflet-container {
+  background-color: var(--bg-1);
+  font-family: inherit;
+}
+
+.leaflet-bar {
+  border: none !important;
+  box-shadow: var(--shadow-main) !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden;
+}
+
+.leaflet-bar a {
+  background-color: var(--bg-1) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--bg-2) !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.leaflet-bar a:hover {
+  background-color: var(--bg-2) !important;
+  color: var(--primary) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: var(--bg-1) !important;
+  color: var(--text-primary) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: var(--shadow-tall) !important;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.leaflet-popup-tip {
+  background-color: var(--bg-1) !important;
+}
+
+.custom-map-pin {
+  background: transparent;
+  border: none;
 }
