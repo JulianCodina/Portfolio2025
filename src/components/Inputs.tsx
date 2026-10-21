@@ -1,14 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import style from "./Inputs.module.css";
 
 interface PropsButtons {
-  icon1?: string;
+  icon1?: string | React.ReactNode;
   text?: string;
-  icon2?: string;
+  icon2?: string | React.ReactNode;
   title?: string;
   disabled?: boolean;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset";
 }
+
 export function BtnOutlined({
   icon1,
   text,
@@ -18,15 +20,16 @@ export function BtnOutlined({
 }: PropsButtons) {
   return (
     <div className={style.container}>
-      <div
+      <button
+        type="button"
         className={style.btn_outlined}
         onClick={onClick}
         title={title ? title : ""}
       >
-        {!!icon1 && <img src={icon1} alt="icon1" />}
+        {typeof icon1 === "string" ? <img src={icon1} alt="" /> : icon1}
         {!!text && <p>{text}</p>}
-        {!!icon2 && <img src={icon2} alt="icon2" />}
-      </div>
+        {typeof icon2 === "string" ? <img src={icon2} alt="" /> : icon2}
+      </button>
     </div>
   );
 }
@@ -38,8 +41,9 @@ export function BtnSolid({
   title,
   onClick,
   disabled,
+  type,
 }: PropsButtons) {
-  function LocalonClick() {
+  function localOnClick() {
     if (!disabled && onClick) {
       onClick();
     }
@@ -47,15 +51,17 @@ export function BtnSolid({
 
   return (
     <div className={disabled ? style.containerDisabled : style.container}>
-      <div
+      <button
+        type={type || "button"}
+        disabled={disabled}
         className={style.btn_solid}
-        onClick={LocalonClick}
+        onClick={localOnClick}
         title={title ? title : ""}
       >
-        {!!icon1 && <img src={icon1} alt="icon1" />}
+        {typeof icon1 === "string" ? <img src={icon1} alt="" /> : icon1}
         {!!text && <p>{text}</p>}
-        {!!icon2 && <img src={icon2} alt="icon2" />}
-      </div>
+        {typeof icon2 === "string" ? <img src={icon2} alt="" /> : icon2}
+      </button>
     </div>
   );
 }
@@ -68,6 +74,7 @@ interface TextFieldProps {
   setValue: (value: string) => void;
   setIsValid: (isValid: boolean) => void;
 }
+
 export function TextField({
   type,
   label,
@@ -121,8 +128,10 @@ export function TextField({
           id={label}
           autoComplete="off"
           placeholder=" "
+          value={value}
           onChange={handleOnChange}
           onBlur={handleBlur}
+          rows={4}
         />
       ) : (
         <input
@@ -131,6 +140,7 @@ export function TextField({
           id={label}
           autoComplete="off"
           placeholder=" "
+          value={value}
           onChange={handleOnChange}
           onBlur={handleBlur}
         />
@@ -139,12 +149,9 @@ export function TextField({
       <label htmlFor={label} className={style.label}>
         {label}
       </label>
-      <label
-        htmlFor={label}
-        className={showError ? style.error : style.nonError}
-      >
+      <span className={showError ? style.error : style.nonError}>
         {error} *
-      </label>
+      </span>
     </div>
   );
 }

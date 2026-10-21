@@ -16,59 +16,70 @@
   overflow-y: scroll;
 
   /* Tema claro (por defecto) */
-  --bg: #f1f1f1e6;
-  --bg-1: #f1f1f1;
-  --bg-2: #ffffff;
-  --bg-less: #d4d4d4;
+  --bg: rgba(248, 250, 252, 0.92);
+  --bg-1: #ffffff;
+  --bg-2: #eef2f5;
+  --bg-less: #e2e8f0;
 
-  --text-primary: #1c1e21;
-  --text-secondary: #3a3c40;
-  --text-tertiary: #7c8085;
-  --text-error: #dc3545;
+  /* Textos de alto contraste (WCAG AA y AAA) */
+  --text-primary: #0f172a;
+  --primary-text: #0f172a;
+  --text-secondary: #334155;
+  --secondary-text: #334155;
+  --text-tertiary: #5c6c81;
+  --text-error: #b91c1c;
 
-  --alert-error: #d74141;
-  --alert-error-bg: #fdeded;
-  --alert-success: #28a745;
-  --alert-success-bg: #edf7ed;
+  --alert-error: #991b1b;
+  --alert-error-bg: #fee2e2;
+  --alert-success: #166534;
+  --alert-success-bg: #dcfce7;
 
-  --primary: #008156;
-  --primary-bg: #d2ebe2;
-  --secondary-bg: #d8f6ea;
-  --absolute: #000;
+  /* Colores primarios accesibles y contrastados */
+  --primary: #008f5f;
+  --primary-bg: #e6f4ea;
+  --secondary-bg: #ceead6;
+  --tag-bg: #e6f4ea;
+  --tag-text: #00754c;
+  --absolute: #0f172a;
 
-  --shadow-main: 0px 1px 2px 0px hsla(0, 0%, 0%, 0.25);
-  --shadow-tall: 0px 3px 3px 0px hsla(0, 0%, 0%, 0.2);
+  --shadow-main: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  --shadow-tall: 0px 4px 8px 0px rgba(0, 0, 0, 0.12);
 
-  --scrollbar-thumb: #848484;
-  --scrollbar-thumb-hover: #6c6c6c;
-  --scrollbar-track: #f1f1f1e6;
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-thumb-hover: #64748b;
+  --scrollbar-track: #f1f5f9;
 }
 
 /* Tema oscuro */
 [data-theme="dark"] {
-  --bg: #2c2c2c;
-  --bg-1: #383838;
-  --bg-2: #505050;
-  --bg-less: #292929;
+  --bg: rgba(24, 25, 28, 0.88);
+  --bg-1: #222327;
+  --bg-2: #2d2e33;
+  --bg-less: #1c1d20;
 
-  --text-primary: #ececec;
-  --text-secondary: #dadada;
-  --text-tertiary: #7c8085;
-  --text-error: #dc3545;
+  /* Textos de alto contraste en modo oscuro */
+  --text-primary: #f8fafc;
+  --primary-text: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --secondary-text: #e2e8f0;
+  --text-tertiary: #94a3b8;
+  --text-error: #f87171;
 
-  --alert-error: #fdeded;
-  --alert-error-bg: #d74141;
-  --alert-success: #edf7ed;
-  --alert-success-bg: #28a745;
+  --alert-error: #fecaca;
+  --alert-error-bg: #7f1d1d;
+  --alert-success: #bbf7d0;
+  --alert-success-bg: #14532d;
 
-  --primary: #00ffa6;
-  --primary-bg: #274138;
-  --secondary-bg: rgb(46, 86, 72);
-  --absolute: #fff;
+  --primary: #00e599;
+  --primary-bg: #163628;
+  --secondary-bg: #1b4332;
+  --tag-bg: #163628;
+  --tag-text: #00ffa6;
+  --absolute: #f8fafc;
 
-  --scrollbar-thumb: #6c6c6c;
-  --scrollbar-thumb-hover: #7c7c7c;
-  --scrollbar-track: #383838;
+  --scrollbar-thumb: #475569;
+  --scrollbar-thumb-hover: #64748b;
+  --scrollbar-track: #1e2024;
 }
 
 body {
@@ -89,59 +100,66 @@ body {
 
 h1 {
   color: var(--text-primary);
-  font-size: 40px;
+  font-size: 2.25rem;
   font-weight: 700;
   margin: 0;
+  line-height: 1.25;
 }
 h2 {
   color: var(--text-primary);
-  font-size: 24px;
+  font-size: 1.38rem;
   font-weight: 700;
   margin: 0;
+  line-height: 1.35;
 }
 h2::after {
   content: "";
   display: block;
-  width: 30px;
-  height: 4px;
+  width: 1.85rem;
+  height: 0.23rem;
   background-color: var(--primary);
-  border-radius: 50px;
-  margin-top: 5px;
+  border-radius: 3rem;
+  margin-top: 0.35rem;
 }
 h3 {
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   margin: 0;
+  line-height: 1.4;
 }
 .p-big {
   color: var(--text-secondary);
-  font-size: 22px;
-  font-weight: 300;
+  font-size: 1.19rem;
+  font-weight: 400;
   margin: 0;
+  line-height: 1.4;
 }
 p {
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: 0.94rem;
   font-weight: 400;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .p-small {
-  color: var(--text-secondary);
-  font-size: 10px;
-  font-weight: 300;
+  color: var(--text-tertiary);
+  font-size: 0.81rem;
+  font-weight: 400;
   margin: 0;
+  line-height: 1.4;
 }
 
 .tag {
-  background-color: var(--primary-bg);
-  padding: 5px 10px;
-  border-radius: 50px;
+  background-color: var(--tag-bg);
+  padding: 0.2rem 0.65rem;
+  border-radius: 3rem;
   width: fit-content;
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 .tag * {
-  color: var(--primary);
+  color: var(--tag-text);
 }
 
 .alert-error {

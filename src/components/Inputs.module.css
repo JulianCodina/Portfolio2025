@@ -1,137 +1,188 @@
 .container {
-  padding: 3px 0 0;
+  padding-top: 0.2rem;
   cursor: pointer;
+  transition: transform 0.2s ease;
+  display: inline-flex;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+}
+
+.btn_outlined,
+.btn_solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.15rem;
+  padding: 0.38rem 0.85rem;
+  border-radius: 0.45rem;
+  gap: 0.4rem;
+  width: fit-content;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
-.container:hover {
-  padding: 0 0 3px;
-}
+
 .btn_outlined {
-  display: flex;
-  align-items: center;
   color: var(--text-primary);
-  border: 1px solid var(--text-primary);
-  padding: 5px 5px;
-  border-radius: 8px;
-  gap: 5px;
-  width: fit-content;
+  background-color: transparent;
+  border: 1.5px solid var(--text-primary);
 }
+
+.btn_outlined:hover {
+  background-color: var(--bg-1);
+}
+
 .btn_solid {
-  display: flex;
-  align-items: center;
   color: var(--primary);
-  background-color: var(--bg-2);
+  background-color: var(--bg-1);
+  border: 1px solid transparent;
   box-shadow: var(--shadow-main);
-  padding: 5px 5px;
-  border-radius: 8px;
-  gap: 5px;
-  width: fit-content;
-  transition: box-shadow 0.2s ease;
+}
+.btn_solid:hover {
+  filter: brightness(1.1)
+}
+
+.btn_solid p,
+.btn_solid span {
+  color: var(--primary);
+}
+
+.containerDisabled {
+  display: inline-flex;
+  cursor: not-allowed;
 }
 
 .containerDisabled .btn_solid {
-  cursor: default;
+  cursor: not-allowed;
   filter: grayscale(1);
-  opacity: 0.8;
+  opacity: 0.6;
   box-shadow: none;
-  margin-top: 3px;
+  transform: none;
 }
 
-.container:hover .btn_solid {
-  box-shadow: var(--shadow-tall);
+.btn_outlined img,
+.btn_solid img {
+  width: 1.13rem;
+  height: 1.13rem;
+  object-fit: contain;
 }
-.btn_solid * {
-  color: var(--primary);
+
+.btn_outlined svg,
+.btn_solid svg {
+  width: 1.13rem;
+  height: 1.13rem;
+  flex-shrink: 0;
 }
-.btn_outlined img {
-  opacity: 0.8;
-}
-img {
-  width: 15px;
-  height: 15px;
-}
-.btn_outlined *,
-.btn_solid * {
-  text-wrap: nowrap;
+
+.btn_outlined p,
+.btn_solid p {
+  margin: 0;
+  white-space: nowrap;
 }
 
 .textField {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.35rem;
   width: 100%;
-  height: 51px;
-  padding-top: 15px;
+  min-height: 4.25rem;
+  padding-top: 1.25rem;
   box-sizing: border-box;
 }
-.textField label {
-  padding-left: 10px;
-  color: var(--text-primary);
-  font-size: 10px;
-}
+
 .textField .input {
   border: none;
   outline: none;
   background-color: var(--bg-1);
-  border-bottom: 3px solid var(--bg-1);
-  border-radius: 8px 8px 0 0;
+  border-bottom: 2px solid var(--bg-less);
+  border-radius: 0.5rem 0.5rem 0 0;
   box-shadow: inset var(--shadow-main);
   color: var(--text-primary);
-  padding: 10px 10px 8px;
-  font-size: 12px;
+  padding: 0.75rem 0.88rem;
+  font-size: 1rem;
+  line-height: 1.5;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: flex-start;
   box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.textField:has(textarea) {
-  height: 100%;
+.textField .input:-webkit-autofill,
+.textField .input:-webkit-autofill:hover,
+.textField .input:-webkit-autofill:focus,
+.textField .input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-1) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  caret-color: var(--text-primary);
+  transition: background-color 5000s ease-in-out 0s;
 }
-.textField textarea {
-  flex-wrap: wrap;
-  overflow-x: hidden;
-  resize: none;
-  font-family: var(--font-family);
+
+.textField textarea.input {
+  resize: vertical;
+  min-height: 6rem;
+  height: 6rem;
+  max-height: 13.5rem;
 }
 
 .textField .nonError {
   color: var(--text-error);
   visibility: hidden;
+  font-size: 0.81rem;
+  padding-left: 0.5rem;
 }
+
 .textField .error {
   color: var(--text-error);
   visibility: visible;
+  font-size: 0.81rem;
+  padding-left: 0.5rem;
 }
 
 .textField .label {
   position: absolute;
-  top: 25px;
-  left: 0;
+  top: 2rem;
+  left: 0.88rem;
   color: var(--text-tertiary);
-  font-size: 12px;
-  transition: 0.15s;
-  cursor: text;
+  font-size: 0.94rem;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  user-select: none;
 }
 
 .textField .input:focus {
-  border-bottom: 3px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  background-color: var(--bg-2);
 }
 
-.textField .input:focus ~ .label {
-  top: 0px;
-  font-size: 10px;
-  font-weight: 600;
-}
-
+.textField .input:focus ~ .label,
 .textField .input:not(:placeholder-shown) ~ .label {
-  top: 0px;
-  font-size: 10px;
+  top: 0;
+  left: 0.25rem;
+  font-size: 0.81rem;
   font-weight: 600;
+  color: var(--primary);
 }
 
-.textField .input:focus ~ .label {
-  color: var(--primary);
+.textField .input:not(:focus):not(:placeholder-shown) ~ .label {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .btn_outlined,
+  .btn_solid {
+    min-height: 2.75rem; /* 44px guaranteed */
+    width: 100%;
+    justify-content: center;
+  }
+
+  .container {
+    width: 100%;
+  }
 }

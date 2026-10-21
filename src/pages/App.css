@@ -1,14 +1,18 @@
 main {
   background-color: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-top: 2px solid var(--bg-2);
   box-shadow: var(--shadow-main);
-  padding: 20px 5% 20px;
-  width: 60%;
+  padding: 1.75rem 2rem;
+  width: 100%;
+  max-width: 55rem;
+  margin: 0 auto;
   height: auto;
-  min-height: 607px;
-  border-radius: 20px;
+  min-height: 36rem;
+  border-radius: 1.15rem;
   box-sizing: border-box;
-  animation: intro 0.5s ease-in-out;
+  animation: intro 0.4s ease-in-out;
 }
 @keyframes intro {
   from {
@@ -81,8 +85,9 @@ main {
 
 @media (max-width: 768px) {
   main {
-    width: 90%;
-    padding: 30px 6% 30px;
+    width: 95%;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
   }
   .background img {
     transform: scale(1.3);

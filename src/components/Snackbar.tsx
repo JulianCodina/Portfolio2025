@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./Snackbar.css";
 
 type SnackbarType = "success" | "error";
@@ -22,12 +22,12 @@ export function Snackbar({ message, type, onClose, duration }: SnackbarProps) {
     return () => clearTimeout(showTimer);
   }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setIsClosing(true);
     setTimeout(() => {
       onClose();
     }, 300);
-  };
+  }, [onClose]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -35,7 +35,7 @@ export function Snackbar({ message, type, onClose, duration }: SnackbarProps) {
     }, duration);
 
     return () => clearTimeout(timer);
-  }, [duration]);
+  }, [duration, handleClose]);
 
   if (!isVisible && !isClosing) return null;
 
