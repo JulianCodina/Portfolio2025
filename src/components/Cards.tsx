@@ -36,18 +36,25 @@ export function AboutCard({ icon, title, text }: AboutCard) {
 
 interface ExpCard {
   logo?: string;
+  logoBg?: boolean;
   task: string;
   date: string;
   text: string[];
   stack: string[];
 }
 
-export function ExpCard({ logo, task, date, text, stack }: ExpCard) {
+export function ExpCard({ logo, logoBg, task, date, text, stack }: ExpCard) {
   return (
     <div className={style.ExpCard}>
       <div className={style.header}>
         <div className={style.top}>
-          <img src={logo} className={style.img} alt="logo" />
+          {logoBg ? (
+            <div className={style.logoWrapperWhite}>
+              <img src={logo} className={style.imgInWhiteBg} alt="logo" />
+            </div>
+          ) : (
+            <img src={logo} className={style.img} alt="logo" />
+          )}
           <p className={style.task}>{task}</p>
         </div>
         <p className="p-small">{date}</p>

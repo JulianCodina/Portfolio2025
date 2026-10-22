@@ -312,6 +312,7 @@ function Portfolio() {
             <div className="card">
               <ExpCard
                 logo={intersoft}
+                logoBg={true}
                 task={texts[language].exp1.title}
                 date={texts[language].exp1.date}
                 text={texts[language].exp1.points}

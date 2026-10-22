@@ -162,3 +162,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 580px) {
+  .experience .container {
+    padding-left: 1.35rem;
+  }
+
+  .experience .container .card:before {
+    left: -1.35rem;
+  }
+
+  .experience .container .card:not(:last-child):after {
+    left: -1.35rem;
+  }
+}
